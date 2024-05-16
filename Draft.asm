@@ -4,12 +4,12 @@
 ;|> If we want to run it on Windows, we can use the (WSL) feature which is built into the system.
 ;------------------------------------------------------------------------------------------------
 ;Commands to run the code:
-;-> sudo apt-get install nasm                   |Download NASM
-;-> nasm -f elf32 input.asm -o output.o         |convert file from .asm to .o
-;-> ld -m elf_i386 output.o -o output           |convert the .o file to an executable using the linker
-;-> nasm -f elf32 -g file.asm                   ;for x32 architecture.
-;-> ld -m elf_i386 -o file file.o               ;for x32 architecture.
-;-> ./output                                    |run the executable file
+;--> sudo get-install nasm      | for first time
+;--> sudo apt install binutils  | for first time
+;--> sudo apt install gcc
+;--> nasm -f elf32 in.asm -o out.o
+;--> ld -m elf_i386 in.o -o out | the linker
+;--> gcc -m32 -o out in.o       | We can use GCC as alinker instead of "ld".
 ;------------------------------------------------------------------------------------------------
 
 section .data                        ;To define constant variables
@@ -17,6 +17,10 @@ section .data                        ;To define constant variables
     var_name dd 10                   ;Declare and initialize a 32-bit integer variable
 
 section .bss                         ;To reserve space in memory to store data later
+
+test resb 1                          ; Reserve 1 byte for the test
+subresult resb 1                     ; Reserve 1 byte for the subtraction result
+addresult resb 1                     ; Reserve 1 byte for the addition result
 
 section .text                        ;Executable code section
 _start:                              ;From here the code starts executing
@@ -40,7 +44,11 @@ _start:                              ;From here the code starts executing
 ;ESP  --> stack pointer              |> Points to the top of the stack.
 ;EBP  --> base pointer               |> Points to the base of the stack.
 ;                                    |> The stack is empty when ESP and EBP have the same address.
-
+;
+; AL, BL, CL, DL ---------------->   |8-bit, lowest bytes of the above.
+;
+;
+;
 ;MOV-------------------------------------------------------------------------------------------------------
 
 mov eax, ebx                        ;|> Copies the contents of register EBX to EAX.
@@ -52,14 +60,16 @@ movzx edx, byte ptr [memory_address];|> Copies the byte from the memory location
 movsx eax, bx                       ;|> Copies the contents of the 16-bit register BX to the 32-bit register EAX, sign-extending the value.
 movsx edx, byte ptr [memory_address];|> Copies the byte from the memory location specified by [memory_address] to the 32-bit register EDX, sign-extending the value.
 ;                                   ;|> If the source is positive, it will be extended by zeros; otherwise, it will be extended with ones.
+;- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;EXAMPLES
 
-;EXAMPLE
-mov al, -5            ; AL = -5                              (11111011) 
-movsx eax, al         ; EAX = -5   (11111111 11111111 11111111 11111011) sign-extended to 32 bits.
+mov [test], 10h                     ; Store 10 in the result variable.
+
+mov al, -5                          ; AL = -5                              (11111011) 
+movsx eax, al                       ; EAX = -5   (11111111 11111111 11111111 11111011) sign-extended to 32 bits.
 
 ;LOGICAL OPERATIONS-----------------------------------------------------------------------------------------
 
-;Also known as Bitwise operations.
 ;These operations include AND, OR, XOR, and NOT
 
 ; AND operation for each single bit
@@ -81,7 +91,7 @@ xor eax, 0x33333333   ; EAX =  00001111 00001111 00001111 00001111 XOR
 ;The result stored in EAX   =  00111100 00111100 00111100 00111100
 
 ; NOT operation for each single bit
-mov eax, 0x0F0F0F0F   ; EAX =  00001111 00001111 00001111 00001111
+mov eax, 0x0F0F0F0F   ; EAX =  00001111 00001111 00001111 00001111 NOT
 not eax               ; EAX =  11110000 11110000 11110000 11110000
 
 ; "test" performs an AND operation but does not store the result.
@@ -90,7 +100,7 @@ test eax, 0x33333333  ; It just updates the flags.
 ;                     ;        00001111 00001111 00001111 00001111 AND
 ;                     ;        00110011 00110011 00110011 00110011
 ;                     ; Result:00000011 00000011 00000011 00000011
-    
+
 ;|flag name           | function                                                       | value in this state for the result
 ;|ZF (zero flag)      | set to 1 if the result of the last update is zero              | set to 0
 ;|SF (sign flag)      | set to 1 if the result of the last update is negative          | set to 0      // number in decimal = 50,332,427
@@ -98,5 +108,18 @@ test eax, 0x33333333  ; It just updates the flags.
 ;|CF (carry flag)     | set to 1 if the result in the last update caused a carry       | cleared to 0 in test command
 ;|OF (overflow flag)  | set to 1 if the number is too high or too low to be represented| cleared to 0 in test command
 ;|                    | in the bytes or space reserved for it.          // Example: 127 + 1 = -128 causes an overflow.
-;-----------------------------------------------------------------------------------------------------------------------------------------
+
+;MATH OPERATION---------------------------------------------------------------------------------------------
+
+;|> Addition
+
+mov al, [num1]        ; Load the value of num1 into AL.
+add al, [num2]        ; Add the value of num2 to AL.
+mov [addresult], al   ; Store the result in the result variable.
+
+;|> Subtraction
+
+mov al, [num1]        ; Load the value of num1 into AL.
+sub al, [num2]        ; Add the value of num2 to AL.
+mov [subresult], al   ; Store the result in the result variable.
 
