@@ -59,6 +59,7 @@ movsx eax, al         ; EAX = -5   (11111111 11111111 11111111 11111011) sign-ex
 
 ;LOGICAL OPERATIONS-----------------------------------------------------------------------------------------
 
+;Also known as Bitwise operations.
 ;These operations include AND, OR, XOR, and NOT
 
 ; AND operation for each single bit
@@ -89,7 +90,7 @@ test eax, 0x33333333  ; It just updates the flags.
 ;                     ;        00001111 00001111 00001111 00001111 AND
 ;                     ;        00110011 00110011 00110011 00110011
 ;                     ; Result:00000011 00000011 00000011 00000011
-
+    
 ;|flag name           | function                                                       | value in this state for the result
 ;|ZF (zero flag)      | set to 1 if the result of the last update is zero              | set to 0
 ;|SF (sign flag)      | set to 1 if the result of the last update is negative          | set to 0      // number in decimal = 50,332,427
@@ -97,6 +98,5 @@ test eax, 0x33333333  ; It just updates the flags.
 ;|CF (carry flag)     | set to 1 if the result in the last update caused a carry       | cleared to 0 in test command
 ;|OF (overflow flag)  | set to 1 if the number is too high or too low to be represented| cleared to 0 in test command
 ;|                    | in the bytes or space reserved for it.          // Example: 127 + 1 = -128 causes an overflow.
-
-;-----------------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------------------------------------------------------------------
 
