@@ -1,5 +1,5 @@
 # My Drafts
-Draft for learn programming languages
+Draft for learning programming languages
 
 <h2>Python</h2>
 <p>This file (Draft.py)contains a python revsion draft.</p>
