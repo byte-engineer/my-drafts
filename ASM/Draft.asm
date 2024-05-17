@@ -123,4 +123,4 @@ mov al, [num1]        ; Load the value of num1 into AL.
 sub al, [num2]        ; Add the value of num2 to AL.
 mov [subresult], al   ; Store the result in the result variable.
 
-;See example_for_add_sub.asm
+;See add_sub.asm
