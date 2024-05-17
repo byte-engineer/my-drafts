@@ -8,7 +8,7 @@
 ;--> sudo apt install binutils  | for first time
 ;--> sudo apt install gcc
 ;--> nasm -f elf32 in.asm -o out.o
-;--> ld -m elf_i386 in.o -o out | the linker
+;--> ld -m elf_i386 in.o -o out | the linker.
 ;--> gcc -m32 -o out in.o       | We can use GCC as alinker instead of "ld".
 ;------------------------------------------------------------------------------------------------
 
@@ -123,3 +123,4 @@ mov al, [num1]        ; Load the value of num1 into AL.
 sub al, [num2]        ; Add the value of num2 to AL.
 mov [subresult], al   ; Store the result in the result variable.
 
+;See example_for_add_sub.asm
