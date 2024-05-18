@@ -124,7 +124,6 @@ mov al, [num1]        ; Load the value of num1 into AL.
 sub al, [num2]        ; Add the value of num2 to AL.              |AL= AL - num2
 mov [subresult], al   ; Store the result in the result variable.
 
-<<<<<<< HEAD
 ;See example_for_add_sub.asm
 - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -135,11 +134,8 @@ mov  ebx, [num2]      ; Load num2 into EBX register
 imul eax, ebx         ; Perform multiplication (EAX * EBX) ,if we don't write "eax" the result will be same.
 mov [mulresult], eax  ; Store the result in the result variable
 
-mov  ebx, [num2]      ; Load num1 into EAX register
+mov  ebx, [num2]      ; Load num1 into EBX register
 mov  eax, [num1]      ; Load num1 into EAX register
 imul ebx              ; Perform multiplication (EBX * EAX) result => EBX = EBX * EAX
 mov [mulresult], eax  ; Store the result in the result variable
 
-=======
-;See add_sub.asm
->>>>>>> 0c0ef3eb5454e720fe8fb7eaa74515a9ff92fe64
