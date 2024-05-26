@@ -10,15 +10,17 @@
 #####                    #####                 ######           ######          ######       ##################       ######       ##########
 #####                    #####                 ######           ######          ######          ###########           ######        #########
 
-#INTRO-----------------------------------------------------------------
+#Intro-----------------------------------------------------------------
 
 #|> Python scripting interpretative programming langauge.
 #|> Python have a great comunity and large support.
 #|> Python have an easy syntax and nise error handelling.
 #|> Python used in many applications like AI, web developing, desktop apps, Others.
 
-#RUN THE CODE----------------------------------------------------------
+#Run the code----------------------------------------------------------
 
+#|> Download python from there oficial website
+#|> Don't forget to add python to the bath. 
 #|> Create a file (file_name.py)
 #|> When you choose your file name DON'T use spaces.
 #|> You can create a file in VScode by writing this commend in CMD => code file_name.py
@@ -30,7 +32,7 @@
 #|> Use this commend in terminal to change directory => cd path_to_your_file.
 #|> To run the code write in terminal => python file_name.py
 
-#PRINT-----------------------------------------------------------------
+#Print-----------------------------------------------------------------
 
 #|> We use print() to display text (string).
 #|> It print new line(\n) in the end by defult.
@@ -43,13 +45,13 @@ print("Hi ", end= "!!")                                                # End by 
 print("Hi", "my", "friend", sep= ", ")                                 # Seprator by defult = " " |Result => "Hi, my, friend"
 print("Force it", flush= True)                                         # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
 
-#COMMENTS--------------------------------------------------------------
+#Comments--------------------------------------------------------------
 
 # this is comment!                                                     # Add hash to make comment.
 # print("Hi guys! ")                                                   # We can use comment to prevent code form running.
 """This is not commend"""                                              # This is non-assigned string(text).
 
-#DATA TYPES------------------------------------------------------------
+#Data types------------------------------------------------------------
 
 #|> We use built-in function called type() to detrim the type of data.
 #|> Data types in python [ints, floats, strings, lists, tuples, sets, dictionarys]
@@ -65,7 +67,7 @@ type((1, 2, 3, 4, 5, 6))                                               # Result 
 type({1, 2, 3, 4, 5, 6})                                               # Result => "set"   |Set.
 type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result +> "dict"  |Dictionary.
 
-#VARIABLES-------------------------------------------------------------
+#Variables-------------------------------------------------------------
 
 #|> In python you don't need to detrim the type of variable.
 #|> You can think of variables as a space in memory.
@@ -81,7 +83,7 @@ a, b, c = 1, True, "nice"                                              # We can 
 help("keywords")                                                       # We use this commend to print out reserved words in the language.
 
 
-#ECAPE_CHARACTERS------------------------------------------------------
+#Ecape characters------------------------------------------------------
 
 # newline
 print("this is \nnew line")                                            # Will print "new line" in new line.
@@ -98,7 +100,7 @@ print("This is\ttap")                                                  # tap by 
 # Hex characters
 print("\x48\x65\x6C\x6C\x6F")                                          # We write Hexadecimal value for ASCII character.
 
-#STRINGS---------------------------------------------------------------
+#Strings---------------------------------------------------------------
 
 text1 = "Hi "
 text2 = "my friend."
@@ -112,7 +114,7 @@ thank you.
 # Concatenation
 full_text = text1 + text2                                              # We use + to merge two strings.
 
-#INDEXING AND SLICING--------------------------------------------------
+#Indexind and slicing--------------------------------------------------
 
 #|> Our strings are ordered by indexs.
 #|> Python use (Zero Base Indexing) that is mean the first character has index zero.
@@ -139,7 +141,7 @@ Wisdom1[:]                                                               # Full 
 Wisdom1[::2]                                                             # Third value is for steps so in this case it will ignore first character and include the second and all the way to the end.
 Wisdom1[::3]                                                             # It will ignore first two characters and include the third and complete all the way to the end.
 
-#STRING METHODS---------------------------------------------------------
+#String methods---------------------------------------------------------
 
 Wisdom2 = "  life has a large spaces..!  "
 Counter = "1,2,3,4,5,6,7,8"
@@ -212,19 +214,95 @@ Wisdom2.find("o")                                                       # Result
 # join()                                                                # Convert list to string.
 "-".join(["my", "name", "is", "..."])                                   # Result => "my-name-is-..."
 
-#STRING FORMATTING------------------------------------------------------
+#String formating------------------------------------------------------
 
-OP_1 = "Science"
-OP_2 = "Money"
+option2 = "Science"
+option1 = "Money"
 year = 1980
+score = 10000000000
 ratio = 0.75
 
+# Concatenation method
+print("hello I love " + option2 + " and " + option1)                    # this method only accept strings
 
-# place holders method                                                  # This method also used in C.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## place holders method
+#|> This method also used in C.
 #|> This method use different holder place for different data types:
 #|> %s --> String
 #|> %d --> Integere
 #|> %f --> Float
 
-print("%s and %s unlock any door" % (OP_1, OP_2))                       # Result => "Science and Money unlock any door"
-print("I born in %d,Iam younger than %f poeple!"%(year, ratio))         # Result => "I born in 1980,Iam younger than 0.750000 poeple!"
+print("%s and %s unlock any door" % (option2, option1))                 # Result => "Science and Money unlock any door
+print("I born in %d,Iam younger than %f poeple!" % (year, ratio))       # Result => "I born in 1980,Iam younger than 0.750000 poeple!"
+
+print("this a float number %.3f with three decimal places." % ratio)    # float control   |Result => "this a float number 0.750 with three decimal places."
+print("Will print first three characters %.3s" % option1)               # string truncate |Result => "Will print first three characters Mon" 
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## Formate method
+#|> {:s} --> String
+#|> {:d} --> Integere
+#|> {:f} --> Float
+
+print("{} and {} unlock any door".format(option2, option1))                  # Result => "Science and Money unlock any door
+print("I born in {:d},Iam younger than {:f} poeple!".format(year, ratio))    # Result => "I born in 1980,Iam younger than 0.750000 poeple!"
+
+print("this a float number {:.3f} with three decimal places.".format(ratio)) # float control   |Result => "this a float number 0.750 with ttree decimal places."
+print("Will print first three characters {:.3s}".format(option1))            # string truncate |Result => "Will print first three characters Mon" 
+print("my score is: {:_d} or {:,d}".format(score, score))                    # Result => "my score is: 10_000_000_000 or 10,000,000,000"
+
+# syntax --> {index:.num|type} --> .format(variable)
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+## Version 3.6+ method
+
+print(f"I love {option1}")                                              # Latest way to format |Result => "I love Money"
+
+#Nunbers---------------------------------------------------------------
+
+#|> We have tree types of numbers: Integers, floats and complex numbers
+#|> We can convert types to others.
+
+# Integers
+23                                                                      # Examples for integers 
+-55
+
+# floats
+1.52                                                                    # Examples for floatss 
+-8.0
+
+# complex numbers
+5+2J                                                                    # Examples for complex numbers
+-3.4+4J
+
+# convertions
+int(23.7)                                                               # To convert to integer. |Result => 23
+float(3)                                                                # To convert to float.   |Result => 3.0
+complex(8.5)                                                            # To convert to complex. |Result => 8.5+0j
+
+#Arithmetic operations-------------------------------------------------
+
+#|> Addition       ---> [+]
+#|> Subtraction    ---> [-]
+#|> Multiplication ---> [*]
+#|> Division       ---> [/]
+#|> Exponent       ---> [**]
+#|> Modulus        ---> [%]
+#|> Floor Division ---> [//]
+
+1 + 54                                                                  # Result => 55
+5 - 70                                                                  # Result => 65
+11 * 10                                                                 # Result => 110
+70 / 5                                                                  # Result => 14.0
+8 ** 2                                                                  # Result => 49
+9 % 6                                                                   # Result => 3
+9 // 6                                                                  # Result => 1
+
+#Lists------------------------------------------------------------------
+
+#|> Lists are mutable so we can edit them easly.
+#|> Lists are not ararys.
+#|> Lists can contain any type of data inside it.
+#|> We use zero base indexind to access any element on the list.
+#|> We can access many elements at once by using slicing.
