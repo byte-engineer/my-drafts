@@ -153,9 +153,10 @@ Wisdom2.strip()                                                         # Will r
 Wisdom2.rstrip()                                                        # Will remove spaces from right side.
 Wisdom2.lstrip()                                                        # Will remove spaces from lift side.
 
+# split(str)
 Wisdom2.split("!.")                                                     # Will remove all "." and "!" from first and end of the string.
 
-# zfill()                                                               # Filling string by adding zeros on the lift
+# zfill(int)                                                            # Filling string by adding zeros on the lift
 "10".zfill(3)                                                           # Result => "010"
 
 # title()                                                               # Make the first letter on every word in apper case.
@@ -168,34 +169,34 @@ Wisdom2.capitalize()                                                    # Result
 Wisdom2.upper()                                                         # Result => "  LIFE HAS A LARGE SPACES..!"
 "DONT SMOKE!".lower()                                                   # Result => "dont smoke!"
 
-# split() rsplit()                                                      # Split the string according to certian seprator and but it on a list, syntax => str.split(seprator, number splits).
+# split(str, int) rsplit(str, int)                                      # Split the string according to certian seprator and but it on a list, syntax => str.split(seprator, number splits).
 Wisdom2.split()                                                         # By defult the seprator set to space " "|Result => ['life', 'has', 'a', 'large', 'spaces..!']
 Counter.split(",")                                                      # Result => ['1', '2', '3', '4', '5', '6', '7', '8'], Set seprator to ",".
 Counter.split(",", 3)                                                   # Result => ['1', '2', '3,4,5,6,7,8'], We have two splits.
 Counter.rsplit(",", 3)                                                  # It start from the right instead of lift |Result => ['1,2,3,4,5', '6', '7', '8']
 
-# center() rjust() ljust()                                              # Insert characters after and before the string, Syntax => str.center(final string length, "filler")
+# center(int, str) rjust(int, str) ljust(int, str)                      # Insert characters after and before the string, Syntax => str.center(final string length, "filler")
 "Delete".center(10)                                                     # Result => "  Delete  "
 "Dont Delete".center(15, "^")                                           # Result => "^^Dont Delete^^"
 "Delete".rjust(10, "-")                                                 # Result => "Delete----"  
 "Delete".ljust(10, "-")                                                 # Result => "----Delete"
 
 
-# count()                                                               # count number of repetitions, syntax => str.count("target", start, end) --> int
+# count(str)                                                            # count number of repetitions, syntax => str.count("target", start, end) --> int
 Wisdom2.count("a")                                                      # Result => 4
 
 # swipcase()                                                            # swips the case of string.
 "bE CAREFUL".swapcase()                                                 # Result => "Be careful"
 
-# startswith() endswith()                                               # Cheak if the string start/end with certian character, syntax => str.startwith("target", start, end)
+# startswith(str) endswith(str)                                         # Cheak if the string start/end with certian character, syntax => str.startwith("target", start, end)
 "Nice".startswith("N")                                                  # Result => True
 "God game".endswith("e")                                                # Result => True
 
-# index() find()                                                        # find the index for certian character, index("substring", start, end)
+# index(str) find(str)                                                  # find the index for certian character, index("substring", start, end)
 Wisdom2.index("l")                                                      # Result => 2  |if there is no result we will get error.
 Wisdom2.find("o")                                                       # Result => -1 |if there is no result we will get -1.
 
-# expandtaps()                                                          # Control tap size.
+# expandtaps(int)                                                       # Control tap size.
 "Python\trespect\ttaps".expandtabs(3)                                   # Every tap will equal 3 spaces.
 
 # islower() isupper()                                                   # Cheak if the string upper or lower
@@ -207,7 +208,7 @@ Wisdom2.find("o")                                                       # Result
 "13".isalpha()                                                          # Result => True 
 "13".isalnum()                                                          # Result => True 
 
-# replace()                                                             # from it's name it replace string with other string
+# replace(str, str)                                                     # from it's name it replace string with other string
 "one two three one two three".replace("one", "1")                       # Result => "1 two three 1 two three"
 "one two three one two three".replace("one", "1", 1)                    # It will replace first "one" only
 
@@ -263,6 +264,7 @@ print(f"I love {option1}")                                              # Latest
 
 #|> We have tree types of numbers: Integers, floats and complex numbers
 #|> We can convert types to others.
+#|> We cannot convert other types to complex.
 
 # Integers
 23                                                                      # Examples for integers 
@@ -283,12 +285,12 @@ complex(8.5)                                                            # To con
 
 #Arithmetic operations-------------------------------------------------
 
-#|> Addition       ---> [+]
-#|> Subtraction    ---> [-]
-#|> Multiplication ---> [*]
-#|> Division       ---> [/]
+#|> Addition       ---> [+ ]
+#|> Subtraction    ---> [- ]
+#|> Multiplication ---> [* ]
+#|> Division       ---> [/ ]
 #|> Exponent       ---> [**]
-#|> Modulus        ---> [%]
+#|> Modulus        ---> [% ]
 #|> Floor Division ---> [//]
 
 1 + 54                                                                  # Result => 55
@@ -302,7 +304,88 @@ complex(8.5)                                                            # To con
 #Lists------------------------------------------------------------------
 
 #|> Lists are mutable so we can edit them easly.
+#|> lists are orderd and Unique.
 #|> Lists are not ararys.
+#|> Slicing and indexing in lists very same in strings.
+#|> To create a list We put our data between square brackets "[]" and sprate elements by using comma ",".
 #|> Lists can contain any type of data inside it.
 #|> We use zero base indexind to access any element on the list.
 #|> We can access many elements at once by using slicing.
+
+data = [325 , "list", True, 5.75, "One", 21]                       # this a list. lists can contain any type of data.
+composit = [["One", "Two", "Three"], [1, 2, 3]]                    # lists can contain other lists.
+empty = []                                                         # impty list.
+
+# slicing and Indexing
+
+data[0]                                                            # Result => 325
+data[-2]                                                           # Result => "One"
+
+data[1 :4]                                                         # Result => ["list", True, 5.75]
+data[::1]                                                          # Whole list.
+data[::2]                                                          # Result => [325, True, 'One']
+
+composit[0]                                                        # Result = ["One", "Two", "Three"]
+composit[0][-1]                                                    # Result = "Three"
+composit[0][-1][2]                                                 # Result = "r"
+
+# list editing
+
+data[-1] = False                                                   # Edited list => [325 , "list", True, 5.75, "One", False]
+data[0:4] = ["Deleted"]                                            # Edited list => ['Deleted', 'One', False]
+data[-2:] = []                                                     # Edited list => ['Deleted']
+
+#List methods------------------------------------------------------
+
+students = ["Beatriz", "Charissa", "January", "Tyrell", "Demi", "Red"]
+newstudents = ["Harry", "Ron"]
+numbers = ["One", "Two",3 ,1 ,2 ,3]
+
+# appaend(element)
+students.append("Brayden")                                         # Add "Bryden" To the list and put it in the last.
+
+# extend(list)
+students.extend(newstudents)                                       # Estend a list with other list. |students = ['Beatriz', 'Charissa', 'January', 'Tyrell', 'Demi', 'Red', 'Brayden', 'Harry', 'Ron'] 
+
+# remove(element)
+students.remove("January")                                         # It removes "January" but this method can remove ONE element form the list.
+
+# reverse()
+students.reverse()                                                 # Result = ['Ron', 'Harry', 'Brayden', 'Red', 'Demi', 'Tyrell', 'Charissa', 'Beatriz']
+
+# sort(reverse= bool)                                              # It works for numbers also but not numbers mixed with stings.
+students.sort(reverse= False)                                      # Result => ['Beatriz', 'Brayden', 'Charissa', 'Demi', 'Harry', 'Red', 'Ron', 'Tyrell']
+students.sort(reverse= True)                                       # Result => ['Tyrell', 'Ron', 'Red', 'Harry', 'Demi', 'Charissa', 'Brayden', 'Beatriz']
+
+# copy()
+copiedNum = numbers.copy()                                         # copiedNum => ["One", "Two",3 ,1 ,2 ,3]
+
+# count(element)
+numbers.count(3)                                                   # number 3 rebeated two times |Result => 2
+
+# index
+students.index("Demi")                                             # If not founded We get error |Result => 4
+
+
+# clear()
+students.clear()                                                   # students => [] 
+
+# insert(index, element)                                           # Insert element before index.
+numbers.insert(2, "Three")                                         # Result => ['One', 'Two', 'Three', 3, 1, 2, 3]
+
+# pop(index)
+numbers.pop(3)                                                     # It will return (numbers[3]) and remove it from the list.
+
+# Tuples-----------------------------------------------------------
+
+#|> Tuple are immutable data typy
+#|> Tuples are ordered and indexed.
+#|> We put our data between two parenthesis.
+#|> We can remove parenthesis and it will still Tuple
+#|> We cannot delete or add elementts in tuples.
+#|> Tuples can have different data types.
+#|> Aperators used in lists and strings are also available in Tuples.
+
+
+
+
