@@ -312,71 +312,71 @@ complex(8.5)                                                            # To con
 #|> We use zero base indexind to access any element on the list.
 #|> We can access many elements at once by using slicing.
 
-data = [325 , "list", True, 5.75, "One", 21]                       # this a list. lists can contain any type of data.
-composit = [["One", "Two", "Three"], [1, 2, 3]]                    # lists can contain other lists.
-empty = []                                                         # impty list.
+data = [325 , "list", True, 5.75, "One", 21]                            # this a list. lists can contain any type of data.
+composit = [["One", "Two", "Three"], [1, 2, 3]]                         # lists can contain other lists.
+empty = []                                                              # impty list.
 
 # slicing and Indexing
 
-data[0]                                                            # Result => 325
-data[-2]                                                           # Result => "One"
+data[0]                                                                 # Result => 325
+data[-2]                                                                # Result => "One"
 
-data[1 :4]                                                         # Result => ["list", True, 5.75]
-data[::1]                                                          # Whole list.
-data[::2]                                                          # Result => [325, True, 'One']
+data[1 :4]                                                              # Result => ["list", True, 5.75]
+data[::1]                                                               # Whole list.
+data[::2]                                                               # Result => [325, True, 'One']
 
-composit[0]                                                        # Result = ["One", "Two", "Three"]
-composit[0][-1]                                                    # Result = "Three"
-composit[0][-1][2]                                                 # Result = "r"
+composit[0]                                                             # Result = ["One", "Two", "Three"]
+composit[0][-1]                                                         # Result = "Three"
+composit[0][-1][2]                                                      # Result = "r"
 
 # list editing
 
-data[-1] = False                                                   # Edited list => [325 , "list", True, 5.75, "One", False]
-data[0:4] = ["Deleted"]                                            # Edited list => ['Deleted', 'One', False]
-data[-2:] = []                                                     # Edited list => ['Deleted']
+data[-1] = False                                                        # Edited list => [325 , "list", True, 5.75, "One", False]
+data[0:4] = ["Deleted"]                                                 # Edited list => ['Deleted', 'One', False]
+data[-2:] = []                                                          # Edited list => ['Deleted']
 
-#List methods------------------------------------------------------
+#List methods-----------------------------------------------------------
 
 students = ["Beatriz", "Charissa", "January", "Tyrell", "Demi", "Red"]
 newstudents = ["Harry", "Ron"]
 numbers = ["One", "Two",3 ,1 ,2 ,3]
 
 # appaend(element)
-students.append("Brayden")                                         # Add "Bryden" To the list and put it in the last.
+students.append("Brayden")                                              # Add "Bryden" To the list and put it in the last.
 
 # extend(list)
-students.extend(newstudents)                                       # Estend a list with other list. |students = ['Beatriz', 'Charissa', 'January', 'Tyrell', 'Demi', 'Red', 'Brayden', 'Harry', 'Ron'] 
+students.extend(newstudents)                                            # Estend a list with other list. |students = ['Beatriz', 'Charissa', 'January', 'Tyrell', 'Demi', 'Red', 'Brayden', 'Harry', 'Ron'] 
 
 # remove(element)
-students.remove("January")                                         # It removes "January" but this method can remove ONE element form the list.
+students.remove("January")                                              # It removes "January" but this method can remove ONE element form the list.
 
 # reverse()
-students.reverse()                                                 # Result = ['Ron', 'Harry', 'Brayden', 'Red', 'Demi', 'Tyrell', 'Charissa', 'Beatriz']
+students.reverse()                                                      # Result = ['Ron', 'Harry', 'Brayden', 'Red', 'Demi', 'Tyrell', 'Charissa', 'Beatriz']
 
-# sort(reverse= bool)                                              # It works for numbers also but not numbers mixed with stings.
-students.sort(reverse= False)                                      # Result => ['Beatriz', 'Brayden', 'Charissa', 'Demi', 'Harry', 'Red', 'Ron', 'Tyrell']
-students.sort(reverse= True)                                       # Result => ['Tyrell', 'Ron', 'Red', 'Harry', 'Demi', 'Charissa', 'Brayden', 'Beatriz']
+# sort(reverse= bool)                                                   # It works for numbers also but not numbers mixed with stings.
+students.sort(reverse= False)                                           # Result => ['Beatriz', 'Brayden', 'Charissa', 'Demi', 'Harry', 'Red', 'Ron', 'Tyrell']
+students.sort(reverse= True)                                            # Result => ['Tyrell', 'Ron', 'Red', 'Harry', 'Demi', 'Charissa', 'Brayden', 'Beatriz']
 
 # copy()
-copiedNum = numbers.copy()                                         # copiedNum => ["One", "Two",3 ,1 ,2 ,3]
+copiedNum = numbers.copy()                                              # copiedNum => ["One", "Two",3 ,1 ,2 ,3]
 
 # count(element)
-numbers.count(3)                                                   # number 3 rebeated two times |Result => 2
+numbers.count(3)                                                        # number 3 rebeated two times |Result => 2
 
 # index
-students.index("Demi")                                             # If not founded We get error |Result => 4
+students.index("Demi")                                                  # If not founded We get error |Result => 4
 
 
 # clear()
-students.clear()                                                   # students => [] 
+students.clear()                                                        # students => [] 
 
-# insert(index, element)                                           # Insert element before index.
-numbers.insert(2, "Three")                                         # Result => ['One', 'Two', 'Three', 3, 1, 2, 3]
+# insert(index, element)                                                # Insert element before index.
+numbers.insert(2, "Three")                                              # Result => ['One', 'Two', 'Three', 3, 1, 2, 3]
 
 # pop(index)
-numbers.pop(3)                                                     # It will return (numbers[3]) and remove it from the list.
+numbers.pop(3)                                                          # It will return (numbers[3]) and remove it from the list.
 
-# Tuples-----------------------------------------------------------
+#Tuples-----------------------------------------------------------------
 
 #|> Tuple are immutable data typy
 #|> Tuples are ordered and indexed.
@@ -386,6 +386,68 @@ numbers.pop(3)                                                     # It will ret
 #|> Tuples can have different data types.
 #|> Aperators used in lists and strings are also available in Tuples.
 
+Rand = ("llama", "Go", 93, 29.999, False, False)                        # This a Tuple.
+oneELement = 'C++',                                                     # This is a Tuple with one element.
+alpha = 'A', 'B', 'C'                                                   # We can write tuples without parenthesis.
 
+Rand[1]                                                                 # Rusult => "Go"
+Rand[1: 4]                                                              # Rusult => ("Go", 93, 29.999)
+Rand[1:: 2]                                                             # Result => ('Go', 29.999, False)
+
+# Rand[4] = True                                                        # We will get Type error. Because Tuples are immutable.
+
+# We can use count() and index() with tuples
+Rand.count(False)                                                       # Result => 2
+Rand.index(29.999)                                                      # Result => 3
+
+# Tuple Destruct
+first, second, third = alpha                                            # first = 'A'   second ='B'   third = 'C'
+
+#Sets------------------------------------------------------------------- 
+
+#|> Sets are immutable data type.
+#|> Sets are Not ordered.
+#|> We put our data between two curly braces.
+#|> Set items is Unque So we cannot rebeat the same element twice.
+#|> Set support immutable data only (numpers, strings, tuples).
+#|> We cannot use indexing and slicing in Sets.
+
+SetA = {1, 1, "One", "One", True, False}                                # Result => {'One', 1, False} |True removed because it equivalent to 1 which is already in the set.
+SetC = {}                                                               # Empty Set.
+SetB = {'a', 'b'}
+SetD = {1, 2, 3}
+SetE = {4, 5, 6}
+SetG = {"Nice", "Good", "Exellent", "Awesome"}
+SetH = {"Outstanding", "Exellent", "Nice"}
+
+
+# clear()
+SetB.clear()                                                            # Removes all elements from the set.
+
+# union(set or more)
+SetD.union(SetE)                                                        # Result => {1, 2, 3, 4, 5, 6}
+SetD | SetE                                                             # Other syntax.
+
+# update
+SetA.update(SetE)                                                       # Update SetA with it self and union of others.
+
+# add(one element)
+SetB.add('C')                                                           # Add 'C' To SetB.
+
+# copy()
+SetF = SetE.copy()
+
+# reomve(element)
+SetF.remove(6)                                                          # Removes one element from the Set, But it generate error if not found.
+
+# dicard(element)
+SetF.discard(7)                                                         # Same remove but it not generate errors.
+
+# pop()
+SetA.pop()                                                              # Return random element form the set and delete it.
+
+# diffrance(set) difference_update(set)
+SetG.difference(SetH)                                                    # It will return {'Nice', 'Exellent'}
+SetG.difference_update(SetH)                                             # SetG will equal {'Nice', 'Exellent'}
 
 
