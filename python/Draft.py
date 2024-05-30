@@ -153,8 +153,7 @@ Wisdom2.strip()                                                         # Will r
 Wisdom2.rstrip()                                                        # Will remove spaces from right side.
 Wisdom2.lstrip()                                                        # Will remove spaces from lift side.
 
-# split(str)
-Wisdom2.split("!.")                                                     # Will remove all "." and "!" from first and end of the string.
+Wisdom2.strip("!.")                                                     # Will remove all "." and "!" from first and end of the string.
 
 # zfill(int)                                                            # Filling string by adding zeros on the lift
 "10".zfill(3)                                                           # Result => "010"
@@ -446,8 +445,184 @@ SetF.discard(7)                                                         # Same r
 # pop()
 SetA.pop()                                                              # Return random element form the set and delete it.
 
-# diffrance(set) difference_update(set)
-SetG.difference(SetH)                                                    # It will return {'Nice', 'Exellent'}
-SetG.difference_update(SetH)                                             # SetG will equal {'Nice', 'Exellent'}
+# diffrance(set) difference_update(set)                                 # Return the elenemts that exest in first but not second.
+SetG.difference(SetH)                                                   # It will return {'Good', 'Awesome'}
+SetG - SetH                                                             # Second syntax.
+SetG.difference_update(SetH)                                            # SetG will equal {'Good', 'Awesome'}
 
+# inetersection(set) inetersection_update(set)                          # Return the elenemts that exest in both sets.
+SetG = {"Nice", "Good", "Exellent", "Awesome"}
+SetH = {"Outstanding", "Exellent", "Nice"}
+ 
+SetG.intersection(SetH)                                                 # It will return {'Nice', 'Exellent'}
+SetG & SetH                                                             # Second syntax.
+SetG.intersection_update(SetH)                                          # SetG will equal {'Nice', 'Exellent'}
+
+# symetric_difference(set)  symetric_difference_update(set)             # Return the elenemts that NOT exest in both sets.
+SetG = {"Nice", "Good", "Exellent", "Awesome"}
+SetH = {"Outstanding", "Exellent", "Nice"}
+
+SetG.symmetric_difference(SetH)                                         # It will return {'Awesome', 'Outstanding', 'Good'}
+SetG ^ SetH                                                             # Second syntax.
+SetG.symmetric_difference_update(SetH)                                  # SetG will equal {'Awesome', 'Outstanding', 'Good'}
+
+#Dectionary-------------------------------------------------------------
+
+#|> Dictionary items are enclosed in curly baces.
+#|> Dictionary containces Key : Value
+#|> Dictionary Key must be immutable data type(numpers, strings, tuples).
+#|> Dictionary can be any type of data.
+#|> Dictionary is not ordered but we can access the values using the keys.
+#|> We can NOT rebeat the Keys in Dictionarys.
+
+User = {                                                                # This a dictionary.
+    "name"      : "Unknown"                                ,
+    "age"       : 29                                       ,
+    "hobbies"   : ["Programming", "3D Modeling", "Reading"],
+    "occupation": "Truth seeker"
+}
+
+Grid = {                                                                # This a two-dimensional dictionary.
+    'row1': {'col1': 1, 'col2': 2, 'col3': 3},
+    'row2': {'col1': 4, 'col2': 5, 'col3': 6},
+    'row3': {'col1': 7, 'col2': 8, 'col3': 9}
+}
+
+# Extract the data 
+User["age"]                                                             # Result => 29
+User.get("age")                                                         # Same result.
+
+Grid["row2"]["col3"]                                                    # Result => 6
+Grid.get("row2").get("col3")
+
+Grid['row4'] = {'col1': 10, 'col2': 11, 'col3': 12}                     # I add a new element to the dictionary.
+Grid.update({'row5' : {'col1': 13, 'col2': 14, 'col3': 15}})            # Other syntax.
+
+#Dictionary methods-----------------------------------------------------
+
+# keys()  values()
+User.keys()                                                             # Return all keys   => ['name', 'age', 'hobbies', 'occupation']
+User.values()                                                           # Return all values => ['Unknown', 29, ['Programming', '3D Modeling', 'Reading'], 'Truth seeker']
+
+# copy()
+user = User.copy()                                                      # Shallow copy.
+
+# setdefault(key ,value)
+User.setdefault("name" ,"Known")                                       # Return => "Unknown"
+User.setdefault("country" ,"World")                                    # Will add this item to dictionary.
+
+# popitem()
+User.popitem()                                                         # Return last element in the dictionary and Remove it from the dictionary.
+
+# items()
+User.items()                                                           # Result => [('name', 'Unknown'), ('age', 29), ('hobbies', ['Programming', '3D Modeling', 'Reading']), ('occupation', 'Truth seeker')]
+
+# fromkeys(keys, values)
+a = (1, 2, 3 ,4)
+b = ("One", "Two")
+dict.fromkeys(a, b)                                                     # Result => {1: ('One', 'Two'), 2: ('One', 'Two'), 3: ('One', 'Two'), 4: ('One', 'Two')}
+
+# clear()
+User.clear()                                                            # Remove all items in the dictionary.
+
+#Boolean----------------------------------------------------------------
+
+#|> Boolean can be only True or False.
+#|> All this Comparison Operators generate boolean values(< > <= <= == !=).
+#|> We can convert most data types to boolean values.
+#|> We have Three boolean operators(and, or, not).
+
+100 <  200  # True
+100 >  200  # False
+200 >= 200  # True
+200 <= 200  # True
+100 == 200  # False
+100 != 200  # True
+
+# Conversion
+bool(False)     # All this return False, Otherwise True.
+bool(0)
+bool('')
+bool([])
+bool(())
+bool({})
+
+# and
+True and True # True                                                    # True if both inputs are True.
+
+# or
+True or False # True                                                    # True if one of inputs is True.
+
+# not
+not True    # False                                                     # Invert the input.
+not False   # True
+
+#Assignment Operators---------------------------------------------------
+
+var = 12                                                                # Assign 12 to X.
+
+var +=  1                                                               # X = X + 1
+var -=  1                                                               # X = X - 1
+var *=  1                                                               # X = X * 1
+var /=  1                                                               # X = X / 1
+var **= 1                                                               # X = X ** 1
+var %=  1                                                               # X = X %  1
+var //= 1                                                               # X = X // 1
+
+#Type Conversion--------------------------------------------------------
+
+bool(23)                                                                # Result => True
+int(23.5)                                                               # Result => 23
+str(23)                                                                 # Result => "23"
+list((23, 24, 25))                                                      # Result => [23, 24, 25]
+tuple([23, 24, 25])                                                     # Result => (23, 24, 25)
+set([23, 24, 25])                                                       # Result => {23, 24, 25}
+dict((("A", 1), ("B", 2), ("C", 3)))                                    # Result => {'A': 1, 'B': 2, 'C': 3} |We can use nisted lists also.
+
+#User input-------------------------------------------------------------
+
+#|> To get data from the user.
+#|> User can enter a strings in the terminal.
+
+Response = input("Enter Data: ")                                        # Returns the data that user enter as string.
+
+#Control Flow-----------------------------------------------------------
+
+#|> Control flow is one of the most important subjects in any programing langauge.
+#|> In python there is three main control flow commands which are (if, elif, else).
+#|> We can change the code path by control flow conditionals.
+
+firstcondition = True
+secondcondition = True
+
+# if  elif else
+if firstcondition :
+    print("firstCondition is True")
+elif secondcondition :
+    print("second condition is True and first is not")
+else:
+    print("no True condition")
+
+# short if
+print("first Condition is True" if firstcondition else "condition false") # It not support (elif)                  
+
+#Membership-------------------------------------------------------------
+
+#|> in
+#|> not in
+
+name = "great person"
+colors = ['red', 'blue', 'pink']
+
+'g' in name                                                             # True
+'red' in colors                                                         # True
+
+#While loop-------------------------------------------------------------
+
+#|> It execute the code bellow it tell condition not be True.
+
+X = 1
+while X < 10:
+    print(f"#{X}", end= "")
+    X += 1
 
