@@ -71,7 +71,7 @@ type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result 
 
 #|> In python you don't need to detrim the type of variable.
 #|> You can think of variables as a space in memory.
-#|> We can use letters (A-Z) or (a-z) and underscores.
+#|> We can use letters (A-Z) or (a-z) and undersResults.
 #|> We can NOT start with numbers or special charecters like "!@#$%^&*()-+=".
 #|> We can include numbers in the middel of variable.
 #|> Some words are reserved so we can't use it as a variable.
@@ -100,6 +100,7 @@ print("This is\ttap")                                                  # tap by 
 # Hex characters
 print("\x48\x65\x6C\x6C\x6F")                                          # We write Hexadecimal value for ASCII character.
 
+print(r"I wanna to write \n without escaping")                         # No escapes will be implemented also called "raw string".
 #Strings---------------------------------------------------------------
 
 text1 = "Hi "
@@ -156,7 +157,9 @@ Wisdom2.lstrip()                                                        # Will r
 Wisdom2.strip("!.")                                                     # Will remove all "." and "!" from first and end of the string.
 
 # zfill(int)                                                            # Filling string by adding zeros on the lift
-"10".zfill(3)                                                           # Result => "010"
+"5".zfill(3)                                                            # Result => "005"
+"45".zfill(3)                                                           # Result => "045"
+"645".zfill(3)                                                          # Result => "645"
 
 # title()                                                               # Make the first letter on every word in apper case.
 Wisdom2.title()                                                         # Result => "Life Has A Large Spaces..!  "
@@ -219,7 +222,7 @@ Wisdom2.find("o")                                                       # Result
 option2 = "Science"
 option1 = "Money"
 year = 1980
-score = 10000000000
+sResult = 10000000000
 ratio = 0.75
 
 # Concatenation method
@@ -250,7 +253,7 @@ print("I born in {:d},Iam younger than {:f} poeple!".format(year, ratio))    # R
 
 print("this a float number {:.3f} with three decimal places.".format(ratio)) # float control   |Result => "this a float number 0.750 with ttree decimal places."
 print("Will print first three characters {:.3s}".format(option1))            # string truncate |Result => "Will print first three characters Mon" 
-print("my score is: {:_d} or {:,d}".format(score, score))                    # Result => "my score is: 10_000_000_000 or 10,000,000,000"
+print("my sResult is: {:_d} or {:,d}".format(sResult, sResult))                    # Result => "my sResult is: 10_000_000_000 or 10,000,000,000"
 
 # syntax --> {index:.num|type} --> .format(variable)
 
@@ -258,6 +261,7 @@ print("my score is: {:_d} or {:,d}".format(score, score))                    # R
 ## Version 3.6+ method
 
 print(f"I love {option1}")                                              # Latest way to format |Result => "I love Money"
+print(f"I love {option1:.3}")                                           # Result => "I love Mon"
 
 #Nunbers---------------------------------------------------------------
 
@@ -270,7 +274,7 @@ print(f"I love {option1}")                                              # Latest
 -55
 
 # floats
-1.52                                                                    # Examples for floatss 
+1.52                                                                    # Examples for floats
 -8.0
 
 # complex numbers
@@ -299,6 +303,28 @@ complex(8.5)                                                            # To con
 8 ** 2                                                                  # Result => 49
 9 % 6                                                                   # Result => 3
 9 // 6                                                                  # Result => 1
+
+#More Advansed operations-----------------------------------------------
+
+# string conversion
+ord("A")                                                                # It convert string character to ASCII/Unicode| Result => 65
+chr(128522)                                                             # It convert ASCII/Unicode to string character| Result => "😊"
+
+# bitwise operations
+0b0101                                                                  # Binary representation of 5 in decimal.
+0x3fff                                                                  # Hexadecimal representation of 16383 in decimal.
+0o5642                                                                  # Octal representation of 2978 in decimal.
+
+bin(23)                                                                 # convert the decimal number to binary.    |Result => 0b10111
+hex(1024)                                                               # convert the decimal number to hexadecimal|Result => 0x3ff
+oct(42)                                                                 # convert the decimal number to octal      |Result => 0o52
+
+~6                                                                      # NOT operation in binary.                 |Result => -7
+2 & 4                                                                   # AND operation in binary.                 |Result => 0
+8 | 5                                                                   # OR operation in binary.                  |Result => 13
+3 ^ 9                                                                   # XOR opration in binary.                  |Result => 10
+3 << 1                                                                  # Lift shift for 1 bits.                   |Result => 6   0011 --> 0110
+6 >> 1                                                                  # Right shift to bits.                     |Result => 3   0110 --> 0011
 
 #Lists------------------------------------------------------------------
 
@@ -559,15 +585,15 @@ not False   # True
 
 #Assignment Operators---------------------------------------------------
 
-var = 12                                                                # Assign 12 to X.
+var = 12                                                                # Assign 12 to var.
 
-var +=  1                                                               # X = X + 1
-var -=  1                                                               # X = X - 1
-var *=  1                                                               # X = X * 1
-var /=  1                                                               # X = X / 1
-var **= 1                                                               # X = X ** 1
-var %=  1                                                               # X = X %  1
-var //= 1                                                               # X = X // 1
+var +=  1                                                               # var = var + 1
+var -=  1                                                               # var = var - 1
+var *=  1                                                               # var = var * 1
+var /=  1                                                               # var = var / 1
+var **= 1                                                               # var = var ** 1
+var %=  1                                                               # var = var %  1
+var //= 1                                                               # var = var // 1
 
 #Type Conversion--------------------------------------------------------
 
@@ -619,10 +645,156 @@ colors = ['red', 'blue', 'pink']
 
 #While loop-------------------------------------------------------------
 
-#|> It execute the code bellow it tell condition not be True.
+#|> It execute the code bellow it till condition not be True.
 
 X = 1
 while X < 10:
     print(f"#{X}", end= "")
     X += 1
+else :
+    print("Loop done! ")                                                 # If the loop interrupted (breaked) this code will be executed.
 
+#For loop----------------------------------------------------------------
+
+#|> for item in iterable_object:
+#       some thing to do with item.
+#|> break    => Exit from the loop.
+#|> continue => Stop current iteration.
+#|> pass     => To escape (ignor) the whole conditional.
+
+iterable_object = ['nice', 'great', 'awesome', 'good']
+
+employees = {
+    'John Doe'     : 'Software Engineer',
+    'Jane Smith'   : 'Data Scientist'   ,
+    'Alice Johnson': 'Product Manager'  ,
+    'Robert Brown' : 'UX Designer'      ,
+    'Emma Davis'   : 'DevOps Engineer'
+}
+
+for item in iterable_object:                                             # For loop in list.
+    print(item)
+    if item == 'awesome':
+        break
+else :
+    print("Loop done! ")                                                 # If the loop interrupted (breaked) this code will be executed.
+
+for name, job in employees.items():                                      # For loop in dictionary.
+    print(f"* {name} hes job {job}.")
+
+#Function And Return-----------------------------------------------------
+
+#|> A Function is A Reusable Block Of Code Do A Task.
+#|> A Function Run When You Call It.
+#|> A Function Create To Prevent DRY (don't rebeat yourself).
+#|> A Function Accept Elements as inputs When You Call It Called [Arguments]
+#|> A Function returns Element To Deal With Called [Parameters]
+#|> A Function Can Return Data After Job is Finished.
+#|> A Function Can Do The Task Without Returning Data.
+#|> There's A Built-In Functions and User Defined Functions.
+
+def function_name():                                                     # Creating a function.
+  return "Hello Python From Inside Function"                             # Function contant.
+
+print(function_name())                                                   # Calling a function.
+
+# Parameters And Arguments 
+#|> def                     => Function Keyword [Define]
+#|> say_hello()             => Function Name
+#|> name                    => Parameter
+#|> print(f"Hello {name}")  => Task
+#|> say_hello("Ahmed")      => Calling the function |Ahmed is The Argument
+
+def say_hello(n):
+
+  print(f"Hello {n}")
+
+say_hello("Daived")
+
+#Packing and unpacking---------------------------------------------------
+
+#|> We use Unpacking when don't know number of items that we going to use.
+#|> *args => arg1, arg2, arg3
+#|> Type of Unpacked arguments is a tuple
+
+# tuples unpacking
+def sum(factor, *numbers):                                               # We can enter any number of items that We want.
+    Result = 0
+    for i in numbers:                                                    # We almost use for loop to use unpacked items.
+        Result += i
+    return Result * factor
+
+# dictionary unpacking
+def skills(**skills):
+    for key ,value in skills.items():
+        print(f"{key} => {value}")
+
+skills(HTML= '90%', CSS= '40%', JS= '10%')                              # As a user input. 
+skills(**employees)                                                     # As a dictionary variable.
+
+#Default parameters------------------------------------------------------
+
+#|> User might not enter requared data to the function, So We set a default value to prevent errors.
+#|> We must put the variables that has a default value in last of inputs of the function.
+
+def favourite_color(color= "White"):                                     # We set a default value for color.
+    print(f"your favourite color is: {color}")
+
+# Globle and local variables---------------------------------------------
+
+Testvar = 4                                                              # This is a globle variable.
+def test():
+    localvar = 3                                                         # Local variable.
+    global Testvar                                                       # calling a globlr variable.
+    Testvar = 39                                                         # Over write a globle variable.
+
+#Function Recursion------------------------------------------------------
+
+#|> Function inside itself called Recursion function.
+
+def factorial(n):                                                        # Example
+    if n == 0 or n == 1:                                                 # Base case: if n is 0 or 1, return 1
+        return 1
+    else:                                                                # Recursive case: call the function with n-1
+        return n * factorial(n - 1)
+
+#Lambda function---------------------------------------------------------
+
+#|> It Has No Name
+#|> You Can Call It Inline Without Defining It.
+#|> You Can Use It In Return Data From Another Function.
+#|> Lambda Used For Simple Functions and Def Handle The Large Tasks.
+#|> Lambda is One Single Expression not Block Of Code.
+#|> Lambda Type is Function.
+
+def say_hello(name, age) : return f"Hello {name} your Age Is: {age}"     # Ordinary function.
+hello = lambda name, age : f"Hello {name} your Age Is: {age}"            # lambda function.
+
+# hello     => To store the result.
+# "lambda"  => lable for define a lambla function.
+# age, name =>  arguments of function.  
+
+# Files Handling---------------------------------------------------------
+
+#|> "a" Append  Open File For Appending Values, Create File If Not Exists.
+#|> "r" Read    [Default Value] Open File For Read and Give Error If File is Not Exists.
+#|> "w" Write   Open File For Writing, Create File If Not Exists.
+#|> "x" Create  Create File, Give Error If File Exists.
+
+import os                                                                # import module that contains some functions.(about this subject later in the course)
+
+os.getcwd()                                                              # Returns current working directory also Written in CMD. |Result => c:\Users\####\Desktop\bilal\files\Codes\Python
+os.path.abspath(__file__)                                                # absolute path for this file.                           |Result => c:\Users\####\Desktop\bilal\files\Codes\Python\Draft.py
+os.path.dirname(os.path.abspath(__file__))                               # Name of the folder that hold this file                 |Result => c:\Users\####\Desktop\bilal\files\Codes\Python
+
+# open('file_path', 'mode')
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\myfile.txt", 'r') # Open a file in read mode.
+
+file                                                                            # Returns all file data but not the contant.
+file.name                                                                       # Returns file name.
+file.mode                                                                       # Returns file mode.
+file.encoding                                                                   # Returns file encoding.
+
+file.read()                                                                     # Returns all the contant of the file.
+print(file.read(5))                                                                    # Read first 5 bytes.
+print(file.readline(1))
