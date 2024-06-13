@@ -32,18 +32,6 @@
 #|> Use this commend in terminal to change directory => cd path_to_your_file.
 #|> To run the code write in terminal => python file_name.py
 
-#Print-----------------------------------------------------------------
-
-#|> We use print() to display text (string).
-#|> It print new line(\n) in the end by defult.
-#|> We can use print() also to write on files. (later on the course)
-
-print("Hello! ")                                                       # Result => "Hello! "
-print("Hello", "World")                                                # We can input many inputs at once.
-print("Hi " * 3)                                                       # Rebeat it 3 times.       |Result => "Hi Hi Hi"
-print("Hi ", end= "!!")                                                # End by defult = "\n"     |Result => "Hi !!"
-print("Hi", "my", "friend", sep= ", ")                                 # Seprator by defult = " " |Result => "Hi, my, friend"
-print("Force it", flush= True)                                         # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
 
 #Comments--------------------------------------------------------------
 
@@ -81,7 +69,6 @@ print(My_first1_variable)                                              # Result 
 a, b, c = 1, True, "nice"                                              # We can assign multiple variables in one time.
 
 help("keywords")                                                       # We use this commend to print out reserved words in the language.
-
 
 #Ecape characters------------------------------------------------------
 
@@ -297,7 +284,7 @@ complex(8.5)                                                            # To con
 #|> Floor Division ---> [//]
 
 1 + 54                                                                  # Result => 55
-5 - 70                                                                  # Result => 65
+5 - 70                                                                  # Result => -65
 11 * 10                                                                 # Result => 110
 70 / 5                                                                  # Result => 14.0
 8 ** 2                                                                  # Result => 49
@@ -323,8 +310,8 @@ oct(42)                                                                 # conver
 2 & 4                                                                   # AND operation in binary.                 |Result => 0
 8 | 5                                                                   # OR operation in binary.                  |Result => 13
 3 ^ 9                                                                   # XOR opration in binary.                  |Result => 10
-3 << 1                                                                  # Lift shift for 1 bits.                   |Result => 6   0011 --> 0110
-6 >> 1                                                                  # Right shift to bits.                     |Result => 3   0110 --> 0011
+3 << 1                                                                  # Lift shift by 1 bits.                    |Result => 6   0011 --> 0110
+6 >> 1                                                                  # Right shift by 1 bits.                   |Result => 3   0110 --> 0011
 
 #Lists------------------------------------------------------------------
 
@@ -776,6 +763,8 @@ hello = lambda name, age : f"Hello {name} your Age Is: {age}"            # lambd
 
 # Files Handling---------------------------------------------------------
 
+#|> In Windows "\n" contains two characters.
+
 #|> "a" Append  Open File For Appending Values, Create File If Not Exists.
 #|> "r" Read    [Default Value] Open File For Read and Give Error If File is Not Exists.
 #|> "w" Write   Open File For Writing, Create File If Not Exists.
@@ -788,13 +777,180 @@ os.path.abspath(__file__)                                                # absol
 os.path.dirname(os.path.abspath(__file__))                               # Name of the folder that hold this file                 |Result => c:\Users\####\Desktop\bilal\files\Codes\Python
 
 # open('file_path', 'mode')
-file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\myfile.txt", 'r') # Open a file in read mode.
 
-file                                                                            # Returns all file data but not the contant.
-file.name                                                                       # Returns file name.
-file.mode                                                                       # Returns file mode.
-file.encoding                                                                   # Returns file encoding.
+# Reading
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\myfile.txt", 'r') # Open a file in read mode.
 
-file.read()                                                                     # Returns all the contant of the file.
-print(file.read(5))                                                                    # Read first 5 bytes.
-print(file.readline(1))
+file                                                                     # Returns all file data but not the contant.
+file.name                                                                # Returns file name.
+file.mode                                                                # Returns file mode.
+file.encoding                                                            # Returns file encoding.
+
+file.read()                                                              # Returns all the contant of the file.
+file.read(5)                                                             # Read first 5 bytes.
+file.readline()                                                          # Returns first line.
+file.readline()                                                          # Returns second line.
+file.readline(6)                                                         # Returns first 6 characters from third line.
+file.readlines()                                                         # Retern a list  |Result => ['hello guys\n', 'How are you.\n', 'this is tips:\n', '-1 nice\n', '-2 good\n', '-3 exellent\n', '-4 outstanding\n']
+
+file.seek(5)                                                             # Move the cursor to position after fifth character.
+print(file.read())                                                       # Result => All string after fifth character.
+
+
+# Writing
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\writefile.txt", 'w')   # Open a file in write mode, If not found will create.
+
+file.write("How are you? \nAre you fine.\n")                                      # Over write Data with this new data In otherway It will delete whole data and write this new data.
+file.writelines(["Go\n", "python\n", "C++\n" ])                                   # Will write this data to the file.
+
+# Appending
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\writefile.txt", 'a')   # Open a file in append mode, If not found will create.
+file.write("C\n")                                                                 # Add "C" without overwrite old data.
+file.truncate(5)                                                                  # It will delete all characters except first 5 bytes after cursor.
+file.tell()                                                                       # It Reterns the position of the cursor. |Notic: "\n" concidered as two characters.
+
+#Some built-In functions-------------------------------------------------  
+
+#|> all()
+#|> any() 
+#|> id()
+#|> sum()
+#|> round()
+#|> range()
+#|> abs()
+#|> pow()
+#|> min()
+#|> max()
+#|> slice()
+#|> help()
+
+check = [1, 2, 3, 4, 5]
+Best = 34
+
+# all(iterable object) 
+all(check)                                                               # If all elements of check are True the function will return True.|Result => True
+
+# any(iterable object)
+any(check)                                                               # If at least one element True it will return True  |Result => True
+
+# id(variable)
+id(Best)                                                                 # It return the memory Adrress of the variable in memory.|Result => 140703970434520
+
+# sum(irerable)
+sum(check)                                                               # Result => 15
+
+# round(number, decimal places)
+round(30.269, 1)                                                         # Result => 30.3
+
+# range(start, end, steps)                                               # If we don't one argument, will be considered as end.
+list(range(5))                                                           # Result => [0, 1, 2, 3, 4]
+list(range(1, 10, 2))                                                    # Result => [1, 3, 5, 7, 9]
+
+# abs(number)
+abs(-128)                                                                # Result => 128  |abslute value
+
+# pow(base, exp, modulus)
+pow(2, 5)                                                                # (2 ** 5)        => 32
+pow(2, 5, 10)                                                            # (2 ** 5) % 10   => 2
+
+# min(item, item, item, or iterator)
+min(2, 3)                                                                # Result => 2 |minimum value.
+min(check)                                                               # Result => 1
+
+# max()
+max(2, 3)                                                                # Result => 3 |maximum value.
+max(check)                                                               # Result => 5
+
+# slice(start, end, steps)
+check[slice(1, 3, 1)]                                                    # Result => [2, 3]
+
+help(print)                                                              # Returns Info about the function inside it.
+
+
+#Print-----------------------------------------------------------------
+
+#|> We use print() to display text (string).
+#|> It print new line(\n) in the end by defult.
+#|> We can use print() also to write on files. (later on the course)
+
+print("Hello! ")                                                       # Result => "Hello! "
+print("Hello", "World")                                                # We can input many inputs at once.
+print("Hi " * 3)                                                       # Rebeat it 3 times.       |Result => "Hi Hi Hi"
+print("Hi ", end= "!!")                                                # End by defult = "\n"     |Result => "Hi !!"
+print("Hi", "my", "friend", sep= ", ")                                 # Seprator by defult = " " |Result => "Hi, my, friend"
+print("Force it", flush= True)                                         # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
+
+#Map-------------------------------------------------------------------
+
+#|> We use map when we want to generate Iterable object that from other iterable object.
+#|> Map() acsept function and iterable object.
+
+frinames = ["Doe", "Daived", "Jone"]
+
+def formatnames(name):
+    return f"- {name} -"
+
+list(map(formatnames, frinames))                                       # Return => [['- Doe -', '- Daived -', '- Jone -']
+
+list(map(lambda name: f"- {name} -", frinames))                        # Return => [['- Doe -', '- Daived -', '- Jone -'] |same result
+
+
+#Filter----------------------------------------------------------------
+
+#|> Filter Take A Function + Iterator.
+#|> Filter Run A Function On Every Element.
+#|> The Function Can Be Pre-Defined Function or Lambda Function.
+#|> Filter Out All Elements For Which The Function Return True.
+#|> The Function Need To Return Boolean Value So it convert result to boolean.
+
+
+myNumbers = [0, 0, 1, 19, 10, 20, 100, 5, 0]
+myTexts = ["Osama", "Omer", "Omar", "Ahmed", "Sayed", "Othman"]
+
+def checkNumber(num):
+  return num > 10
+
+def checkName(name):
+  return name.startswith("O")
+#                                                                      # Results in for loop 
+filter(checkNumber, myNumbers)                                         # 19, 20, 100
+filter(checkName, myTexts)                                             # "Osama", "Omer", "Omar", "Othman"
+filter(lambda name: name.startswith("A"), myTexts)                     # "Ahmed"
+
+#Reduce----------------------------------------------------------------
+
+#|> Reduce Take A Function + Iterator.
+#|> Reduce Run A Function On First and Second Element And Give Result.
+#|> Then Run Function On Result And Third Element.
+#|> Then Run Function On Rsult And Fourth Element And So On.
+#|> Till One ELement is Left And This is The Result of The Reduce.
+#|> The Function Can Be Pre-Defined Function or Lambda Function.
+
+def sumAll(num1, num2):
+    return num1 + num2
+
+numbers = [1, 8, 2, 9, 100]
+
+from functools import reduce
+
+reduce(sumAll, numbers)                                                # ((((1 + 8) + 2) + 9) + 100)
+reduce(lambda num1, num2: num1 + num2, numbers)                        # Result => 120
+
+#Iterable & Iterator-----------------------------------------------------
+
+#|> Iterable date type in python are (string, list, ...).
+#|> We can convert iteralbe to iterator by using iter() function.
+#|> We can go to next element in our iterable by using next() function.
+#|> For loop call iter() automaticely behind the scene.
+
+lang = "python"
+
+itrlang = iter(lang)                                                     # Return => iterator
+next(itrlang)                                                            # Result => 'p'
+next(itrlang)                                                            # Result => 'y'
+next(itrlang)                                                            # Result => 't'
+next(itrlang)                                                            # Result => 'h'
+next(itrlang)                                                            # Result => 'o'
+next(itrlang)                                                            # Result => 'n'
+# next(itrlang)                                                          # Result => error: Stopiteration
+
