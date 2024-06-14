@@ -28,6 +28,7 @@ isqrt(25)                                                                # We us
 # pip --version                        To chuck if pip exist.
 # pip list                             List all installed packages with thair versions.
 # pip install (package)                Install new package.
+# pip uninstall (package)              unInstall a package.
 # pip install (package) --upgrade      Upgrade package.
 
 # To check the contant of any module/package.
@@ -72,11 +73,41 @@ greatday.strftime("%b")                                                   # Mont
 greatday.strftime("today is: %d, %B, %Y")                                 # We can compime all together              |Result => "today is: 06, August, 2024"
 greatday.strftime("%x")                                                   # For more info in https://strftime.org/   |Result => 08/06/24
 
+#Image minipulation (Pillow)----------------------------------------------
 
+#|> Python Imaging Library (PIL)
+#|> We use this library to edit images.
+#|> pip install Pillow.
+#|> It's wepsite https://pillow.readthedocs.io
 
+from PIL import Image
 
+# Open image
+myimage = Image.open(r"C:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\REQs\fisherman.jpg")
 
+# show image
+myimage.show()
 
+# image data
+print(myimage.format, myimage.size, myimage.mode)
 
- 
-print(greatday.strftime("today is: %d, %B, %Y"))
+# crop an image
+box = (100, 100, 1600, 1200)
+croped = myimage.crop(box)
+croped.show()
+
+# Resize the image
+new_resolution = (80, 60)                                               # Specify the new width and height
+resized_image = myimage.resize(new_resolution)
+
+BWimage = myimage.convert("L")
+
+# save an image
+resized_image.save("Draft/REQs/fisherman_resized.jpg")
+
+# Access a single pixel
+pixel = myimage.getpixel((100, 100))                                    # Coordinates of the pixel|Pixel = (129, 177, 199)
+# Replace pixel
+new_pixel = (255, 0, 0)
+myimage.putpixel((100, 100), new_pixel)
+

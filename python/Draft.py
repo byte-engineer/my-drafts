@@ -669,6 +669,7 @@ else :
 for name, job in employees.items():                                      # For loop in dictionary.
     print(f"* {name} hes job {job}.")
 
+pows = [x*x for x in range(10)]                                          # Return the list contains powers.|Result => [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 #Function And Return-----------------------------------------------------
 
 #|> A Function is A Reusable Block Of Code Do A Task.
@@ -779,7 +780,7 @@ os.path.dirname(os.path.abspath(__file__))                               # Name 
 # open('file_path', 'mode')
 
 # Reading
-file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\myfile.txt", 'r') # Open a file in read mode.
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\REQs\myfile.txt", 'r') # Open a file in read mode.
 
 file                                                                     # Returns all file data but not the contant.
 file.name                                                                # Returns file name.
@@ -798,13 +799,13 @@ print(file.read())                                                       # Resul
 
 
 # Writing
-file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\writefile.txt", 'w')   # Open a file in write mode, If not found will create.
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\REQs\writefile.txt", 'w')   # Open a file in write mode, If not found will create.
 
 file.write("How are you? \nAre you fine.\n")                                      # Over write Data with this new data In otherway It will delete whole data and write this new data.
 file.writelines(["Go\n", "python\n", "C++\n" ])                                   # Will write this data to the file.
 
 # Appending
-file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\writefile.txt", 'a')   # Open a file in append mode, If not found will create.
+file = open(r"c:\Users\Hp\Desktop\bilal\files\Codes\Python\Draft\REQs\writefile.txt", 'a')   # Open a file in append mode, If not found will create.
 file.write("C\n")                                                                 # Add "C" without overwrite old data.
 file.truncate(5)                                                                  # It will delete all characters except first 5 bytes after cursor.
 file.tell()                                                                       # It Reterns the position of the cursor. |Notic: "\n" concidered as two characters.
@@ -936,7 +937,7 @@ from functools import reduce
 reduce(sumAll, numbers)                                                # ((((1 + 8) + 2) + 9) + 100)
 reduce(lambda num1, num2: num1 + num2, numbers)                        # Result => 120
 
-#Iterable & Iterator-----------------------------------------------------
+#Iterable & Iterator---------------------------------------------------
 
 #|> Iterable date type in python are (string, list, ...).
 #|> We can convert iteralbe to iterator by using iter() function.
@@ -945,12 +946,67 @@ reduce(lambda num1, num2: num1 + num2, numbers)                        # Result 
 
 lang = "python"
 
-itrlang = iter(lang)                                                     # Return => iterator
-next(itrlang)                                                            # Result => 'p'
-next(itrlang)                                                            # Result => 'y'
-next(itrlang)                                                            # Result => 't'
-next(itrlang)                                                            # Result => 'h'
-next(itrlang)                                                            # Result => 'o'
-next(itrlang)                                                            # Result => 'n'
+iterlang = iter(lang)                                                    # Return => iterator
+next(iterlang)                                                           # Result => 'p'
+next(iterlang)                                                           # Result => 'y'
+next(iterlang)                                                           # Result => 't'
+next(iterlang)                                                           # Result => 'h'
+next(iterlang)                                                           # Result => 'o'
+next(iterlang)                                                           # Result => 'n'
 # next(itrlang)                                                          # Result => error: Stopiteration
+
+#Generators--------------------------------------------------------------
+
+#|> Gnerators are a type of iterators.
+#|> Generators are Immutable object.
+#|> Generators are built whene the code run and not stored in memory.
+#|> We use yield keyword to assin an element on the Generator.
+#|> Normaly We use a function to generate a Generator.
+
+def gen():                                                               # Create a generator.
+    yield 1
+    yield 2
+    yield 3
+    yield 4
+
+def evens():
+    for i in range(10):
+        yield i*2
+
+for element in gen():
+    print(element, end= " ")                                            # Result => 1 2 3 4
+
+for element in evens():
+    print(element, end= " ")                                            # Result => 1 2 3 4 0 2 4 6 8 10 12 14 16 18
+
+#Decorators-------------------------------------------------------------
+
+#|> We use decorators to edit functions.
+#|> Decorators are used to modify the behavier of the function.
+#|> To define a decorator We need to create two nested function (decorator function & wrapper function).
+#|> We use @decorator_name to applay decorator to a function.
+
+def my_decorator(func):                                                 # The decorator.
+    def edited():                                                       # Wrapper function.
+        print("Something is happening before the function is called.")  # print Text before and after the function.
+        func()
+        print("Something is happening after the function is called.")
+    return edited                                                       # Return edited function.
+
+
+from time import time                                                   # Example if the function reqaured a inputs. 
+def timer(func):                                                        # Decorator name (timer)
+    def edited(*parameters):                                            # Nested function 
+        start = time()
+        func(*parameters)
+        end = time()
+        print(f"time: {end - start}")
+    return edited                                                       # Return the edited (nested) function.
+
+@timer                                                                  # We call our decorator.
+def foo(start, end):
+    for i in range(start,end):
+        print("Hi!")
+
+foo(1, 1000)                                                            # Call our function.
 
