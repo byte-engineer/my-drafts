@@ -45,7 +45,6 @@ print(termcolor.colored("python", color= "yellow"))                             
 
 print(termcolor.colored(pyfiglet.figlet_format("python", font= "slant"), color= "yellow")) # compine those together.
 
-#date & time--------------------------------------------------------------
 # Built-In module
 import datetime
 
@@ -107,6 +106,7 @@ resized_image.save("Draft/REQs/fisherman_resized.jpg")
 
 # Access a single pixel
 pixel = myimage.getpixel((100, 100))                                    # Coordinates of the pixel|Pixel = (129, 177, 199)
+
 # Replace pixel
 new_pixel = (255, 0, 0)
 myimage.putpixel((100, 100), new_pixel)

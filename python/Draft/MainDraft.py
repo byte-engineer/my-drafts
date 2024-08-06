@@ -20,7 +20,7 @@
 #Run the code----------------------------------------------------------
 
 #|> Download python from there oficial website
-#|> Don't forget to add python to the bath. 
+#|> Don't forget to add python to the path.
 #|> Create a file (file_name.py)
 #|> When you choose your file name DON'T use spaces.
 #|> You can create a file in VScode by writing this commend in CMD => code file_name.py
@@ -32,12 +32,17 @@
 #|> Use this commend in terminal to change directory => cd path_to_your_file.
 #|> To run the code write in terminal => python file_name.py
 
+#Python Environment-----------------------------------------------------
+
+#|> To create a vertual environment run this commend      ||> python -m venv Environment_Name
+#|> To Run a virtual environment you can run this commend ||> .\Environment_Name\Scripts\activate 
+#|> If you want to deactivate it run                      ||> deactivate
 
 #Comments--------------------------------------------------------------
 
 # this is comment!                                                     # Add hash to make comment.
 # print("Hi guys! ")                                                   # We can use comment to prevent code form running.
-"""This is not commend"""                                              # This is non-assigned string(text).
+"""This is not commend"""                                              # This is non-assigned string(text) used for decumenting.
 
 #Data types------------------------------------------------------------
 
@@ -53,13 +58,13 @@ type("Python")                                                         # Result 
 type([1, 2, 3, 4, 5, 6])                                               # Result => "list"  |List.
 type((1, 2, 3, 4, 5, 6))                                               # Result => "tuple" |Tuple.
 type({1, 2, 3, 4, 5, 6})                                               # Result => "set"   |Set.
-type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result +> "dict"  |Dictionary.
+type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result => "dict"  |Dictionary.
 
 #Variables-------------------------------------------------------------
 
 #|> In python you don't need to detrim the type of variable.
 #|> You can think of variables as a space in memory.
-#|> We can use letters (A-Z) or (a-z) and undersResults.
+#|> We can use letters (A-Z) or (a-z) and underscore.
 #|> We can NOT start with numbers or special charecters like "!@#$%^&*()-+=".
 #|> We can include numbers in the middel of variable.
 #|> Some words are reserved so we can't use it as a variable.
@@ -67,6 +72,10 @@ type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result 
 My_first1_variable = "Hello ,World!"                                   # Assign "Hello ,World!" to my variable.
 print(My_first1_variable)                                              # Result => "Hello ,World!".
 a, b, c = 1, True, "nice"                                              # We can assign multiple variables in one time.
+
+# Spesify the type of variable
+dog: str = "bob"                                                       # this specefcation is just for the user
+company: dict[str: str] = {"Name" : "bob", "Age" : "5 years"}          # This the sytax for dictionarys.
 
 help("keywords")                                                       # We use this commend to print out reserved words in the language.
 
@@ -204,7 +213,7 @@ Wisdom2.find("o")                                                       # Result
 # join()                                                                # Convert list to string.
 "-".join(["my", "name", "is", "..."])                                   # Result => "my-name-is-..."
 
-#String formating------------------------------------------------------
+#String formating-------------------------------------------------------
 
 option2 = "Science"
 option1 = "Money"
@@ -240,7 +249,7 @@ print("I born in {:d},Iam younger than {:f} poeple!".format(year, ratio))    # R
 
 print("this a float number {:.3f} with three decimal places.".format(ratio)) # float control   |Result => "this a float number 0.750 with ttree decimal places."
 print("Will print first three characters {:.3s}".format(option1))            # string truncate |Result => "Will print first three characters Mon" 
-print("my sResult is: {:_d} or {:,d}".format(sResult, sResult))                    # Result => "my sResult is: 10_000_000_000 or 10,000,000,000"
+print("my sResult is: {:_d} or {:,d}".format(sResult, sResult))              # Result => "my sResult is: 10_000_000_000 or 10,000,000,000"
 
 # syntax --> {index:.num|type} --> .format(variable)
 
@@ -259,6 +268,7 @@ print(f"I love {option1:.3}")                                           # Result
 # Integers
 23                                                                      # Examples for integers 
 -55
+3e-3
 
 # floats
 1.52                                                                    # Examples for floats
@@ -336,6 +346,7 @@ data[-2]                                                                # Result
 data[1 :4]                                                              # Result => ["list", True, 5.75]
 data[::1]                                                               # Whole list.
 data[::2]                                                               # Result => [325, True, 'One']
+data[::-1]                                                              # Revers the List.
 
 composit[0]                                                             # Result = ["One", "Two", "Three"]
 composit[0][-1]                                                         # Result = "Three"
@@ -377,7 +388,6 @@ numbers.count(3)                                                        # number
 
 # index
 students.index("Demi")                                                  # If not founded We get error |Result => 4
-
 
 # clear()
 students.clear()                                                        # students => [] 
@@ -585,7 +595,7 @@ var //= 1                                                               # var = 
 #Type Conversion--------------------------------------------------------
 
 bool(23)                                                                # Result => True
-int(23.5)                                                               # Result => 23
+int("23", base= 10)                                                     # Result => 23
 str(23)                                                                 # Result => "23"
 list((23, 24, 25))                                                      # Result => [23, 24, 25]
 tuple([23, 24, 25])                                                     # Result => (23, 24, 25)
@@ -608,7 +618,7 @@ Response = input("Enter Data: ")                                        # Return
 firstcondition = True
 secondcondition = True
 
-# if  elif else
+# if elif else
 if firstcondition :
     print("firstCondition is True")
 elif secondcondition :
@@ -656,7 +666,7 @@ employees = {
     'Jane Smith'   : 'Data Scientist'   ,
     'Alice Johnson': 'Product Manager'  ,
     'Robert Brown' : 'UX Designer'      ,
-    'Emma Davis'   : 'DevOps Engineer'
+    'Emma Davis'   : 'Devops Engineer'
 }
 
 for item in iterable_object:                                             # For loop in list.
@@ -670,6 +680,7 @@ for name, job in employees.items():                                      # For l
     print(f"* {name} hes job {job}.")
 
 pows = [x*x for x in range(10)]                                          # Return the list contains powers.|Result => [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
 #Function And Return-----------------------------------------------------
 
 #|> A Function is A Reusable Block Of Code Do A Task.
@@ -735,6 +746,7 @@ def test():
     localvar = 3                                                         # Local variable.
     global Testvar                                                       # calling a globlr variable.
     Testvar = 39                                                         # Over write a globle variable.
+    localvar = 85                                                        # Over write a local variable.
 
 #Function Recursion------------------------------------------------------
 
@@ -760,7 +772,7 @@ hello = lambda name, age : f"Hello {name} your Age Is: {age}"            # lambd
 
 # hello     => To store the result.
 # "lambda"  => lable for define a lambla function.
-# age, name =>  arguments of function.  
+# age, name =>  arguments of function.
 
 # Files Handling---------------------------------------------------------
 
@@ -862,10 +874,13 @@ min(check)                                                               # Resul
 max(2, 3)                                                                # Result => 3 |maximum value.
 max(check)                                                               # Result => 5
 
+# sum
+sum([1, 2, 3])                                                           # Result => 6
+
 # slice(start, end, steps)
 check[slice(1, 3, 1)]                                                    # Result => [2, 3]
 
-help(print)                                                              # Returns Info about the function inside it.
+#help(print)                                                             # Returns Info about the function inside it.
 
 
 #Print-----------------------------------------------------------------
@@ -874,12 +889,12 @@ help(print)                                                              # Retur
 #|> It print new line(\n) in the end by defult.
 #|> We can use print() also to write on files. (later on the course)
 
-print("Hello! ")                                                       # Result => "Hello! "
-print("Hello", "World")                                                # We can input many inputs at once.
-print("Hi " * 3)                                                       # Rebeat it 3 times.       |Result => "Hi Hi Hi"
-print("Hi ", end= "!!")                                                # End by defult = "\n"     |Result => "Hi !!"
-print("Hi", "my", "friend", sep= ", ")                                 # Seprator by defult = " " |Result => "Hi, my, friend"
-print("Force it", flush= True)                                         # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
+print("Hello! ")                                                        # Result => "Hello! "
+print("Hello", "World")                                                 # We can input many inputs at once.
+print("Hi " * 3)                                                        # Rebeat it 3 times.       |Result => "Hi Hi Hi"
+print("Hi ", end= "!!")                                                 # End by defult = "\n"     |Result => "Hi !!"
+print("Hi", "my", "friend", sep= ", ")                                  # Seprator by defult = " " |Result => "Hi, my, friend"
+print("Force it", flush= True)                                          # To force the output to flushed it immediately.Try to do this commend if the function dosn't work.
 
 #Map-------------------------------------------------------------------
 
@@ -1008,5 +1023,273 @@ def foo(start, end):
     for i in range(start,end):
         print("Hi!")
 
-foo(1, 1000)                                                            # Call our function.
+foo(1, 20)                                                              # Call our function.
+
+#Documenting------------------------------------------------------------
+
+#|> We use docstring to describe the code or function.
+#|> We can view the docstring by using .__doc__ method or help().
+
+def sayhello():
+    """this function is for test."""
+    print("Hello!")
+
+say_hello.__doc__                                                       # Retern => "this function is for test."
+help(say_hello)                                                         # Other sytax.
+
+#Errors-----------------------------------------------------------------
+
+#|> Exeption gives you a description to understand the problem.
+#|> We have many types of Exeption (SyntaxError, ValueError, KeyError, ...)
+#|> Oficial website https://docs.python.org/3/library/exceptions.html .
+#|> We can raise our own Exception by using raise().
+
+def my_errors():
+    raise Exception("My cause of error")                                # This Exception will stop the code.
+    raise ValueError()                                                  # We can specify any type of errors.
+    raise ZeroDivisionError("You can NOT divide by zero")               # Other example.
+
+
+#|> try     => Inspect the code if there is errors.
+#|> expect  => Do something if there is errors.
+#|> else    => Do something if there is NO errors.
+#|> finally => Do something anyway (if there is errors or not).
+
+try:
+    res = input(">> ")
+    if res == "":
+        print("No Responce!")
+
+except:
+    print("something Wrong!")
+
+else:
+    print("No errors!")
+
+finally:
+    print("Thanks!!")
+
+#----------------------------
+
+try :
+    print(10/0)
+except ZeroDivisionError:
+    print("can't divide!")
+
+#Type hint---------------------------------------------------------------
+
+#|> We can use the type hint On  the function to indecate the type of function return or it's paramrters.
+
+def double(number) -> int :                                              # It accept an integer.
+    return number * 2
+
+def say_hello(name: str, grade: int) :                                   # Other sytax, It accept an string.
+    print(f"hello {name} and my grade {grade}")
+
+#Regular experession-----------------------------------------------------
+
+#|> A sequence of characters thet define a search pattern.
+#|> Its General Concept in most programing langauges.
+#|> https://pythex.org/ is a nice website for regular experession.
+
+# Special sequences
+# \w       => alphanumeric.
+# \W       => non-alphanumeric.
+# \d       => digit 0-9
+# \D       => non-digit
+# \.       => any character exept new line "n/"
+# \s	   => whitespace: " \t\n\r\f\v"
+# \S       => non-space
+
+# Quantifiers
+# *        => 0 or more
+# +        => 1 or more
+# ?        => 0 or 1
+# {4}      => Exactly 4
+# {2,7}    => Between 2 and 7
+# {2,}     => 2 or more
+# {,6}     => Up to 6
+
+# Character classes
+# [wrd]    => search for any characters
+# [0-9]    => 0 to 9
+# [A-Z]    => A to Z
+# [^N]     => Every thing but not "N"
+
+# Others
+# |        => Or
+# \        => Escape special characters
+# ()       => Seprate group
+# ^        => Beginning of string
+# $        => End of string
+
+# Example:
+# Formula  |  Descrption                                                 |  Example
+#> \d\d    => Two digits                                                 |> "34"
+#> \w\s\w  => One alphanumeric then space then one alphanumeric          |> "R m"
+#> A\w\d   => Letter "A" then alphanumeric then digit                    |> "Ag3"
+#> \w{3}   => 3 alphanumeric                                             |> "Run"
+#> ame     => Exactly "ame" in order                                     |> "ame"
+#> [ame]   => Any "a" or "m" or "e"                                      |> "mea"
+#> [2-8]   => 2 to 8                                                     |> "7355"
+#> [a-e0-9]=> "a" to "e" and 0 to 9                                      |> "aeebd33450"
+#> [^a-h]  => Every thing but not "a" to "z"                             |> "k0jgim1^&"
+
+# ^(https?://)(www\.)?(\w+).(net|org|com)$         => Regular experession for link
+# ^([A-z0-9/.]+)(@[A-z0-9]+)(.[a-z]+)$             => Regular experession for email
+
+#  search()  => find the first matched characters.  return --> string
+#  findall() => find ALL matched characters.        return --> list
+
+import re
+
+my_search = re.search("\d", "my number is: 23")                                  # Return object => <span=(14, 15), match='2'>
+
+my_findall = re.findall("\d", "my number is: 23")                                # Return list => ['2', '3']
+print(re.findall(r"^([A-z0-9/.]+)@([A-z0-9]+).([a-z]+)$", "new.hi@emaile.pro"))  # Result => [('new.hi', 'emaile', 'pro')]
+
+print(dir(re))
+
+# OOP--------------------------------------------------------------------
+
+#|> (OOP) is Object-Oriented Programming.
+#|> We create an object with keyword class.
+#|> A method is a function inside the class.
+#|> An attribute is a variable in the class.
+#|> __init__() method executed when the class instance created.
+#|> Use dir(class_name) to preview it's methods.
+#|> self is points for insatance that we will create.
+#|> "self" can be named any thing.
+#|> Types of methods    --> Instance methods, class methods, static methods, spcial methods
+#|> Types of attributes --> instansce attributes, class attributes
+
+# Create a first class
+class first:                                                              # name the class after the keyword "class"
+    def __init__(self, name):                                             # self argument is very important.
+        print("This is my first class!")                                  # Will executed when class instance created.
+        print("Name: {name}")
+fst_cls = first("hello")                                                  # "first" instance class created.
+#                                                                         # __init__() method will executed.
+
+# Other Example
+class friends:
+    number = 0                                                            # This is a class attribute (more later).
+
+    def __init__(self, name):                                             # This class required one parameter which is (name).
+        self.name = name                                                  # This is Instance attribute (more later).
+
+friends.number                                                            # access the attribute without create the object (more later). 
+
+frds = friends("david")                                                   # Object creation with name "frds"
+frds.name                                                                 # get the attribute.
+frds.number                                                               # We can access the class attribute from the object.
+
+# Methods types-----------------------------------------------------------
+
+#|> Methods are a function inside a class.
+#|> We have four types of methods:
+#|> Instance methods.(most common)
+#|> Class methods.
+#|> Static methods.
+#|> Spesial methods.
+
+# INSTANCE METHODS #
+#|> These methods are the most common type.
+#|> The first parameter of in instance method is always "self" (or any parameter refirs for instance), which refers to the instance calling the method.
+#|> Instance methods are linked with an object so we can't use it without create an object.
+#|> Can access other methods in same class with (self.) prefix.
+
+class Members:
+    e = 1
+    def __init__(self):
+        pass
+
+    def greating(self):                            # This is a Instance method 
+        return "hello"
+
+    def named_great(self, name):
+        self.fname = name
+        return self.greating() + name              # Access a other method on the same class.
+
+
+# CLASS METHODS #
+#|> Class mothod is related with the class Therefore We don't need to create an object to call it.
+#|> The first parameter is always (cls), which refers to the class itself.
+#|> They are defined using the (@classmethod) decorator.
+#|> The class methods change the class state in general.
+#|> Class methods works on level of all instansces and the whole class and affact them.
+
+class MyClass:
+    class_var = 0                                 # Class variable (more later)
+
+    @classmethod                                  # Class method decorator
+    def class_method(cls):                        # It's first parameter is (cls) which refer to the class
+        cls.class_var += 1
+
+MyClass.class_method()                            # Call the method without create an object(instance).
+
+
+# STATIC METHODS #
+#|> Static methods have a logical bound with class but it don't need to access the class or instance methods or attributes.
+#|> Static methods don't Requir (self) or (cls) to work.
+#|> They are defined using the (@staticmethod) decorator.
+
+class MyClass:
+    @staticmethod                                 # The static method decorator.
+    def static_method():
+        print("This is a static method")
+
+MyClass.static_method()
+
+
+
+
+
+## Inheritance
+#|> Inheritance is a way to form new classes (child class) using classes that have already (perent class) been defined.
+#|> We use super() to call the parent class’s methods and attributes.
+
+class Myclass:                                                           # Descriping a class.
+    # __init__ Method executed when the object created.
+    def __init__(self, attribute1, attribute2):                          # Define an attribute
+        self.attribute1 = attribute1
+        self.attribute2 = attribute2
+    
+    def method1(self):                                                   # define a method
+        return "this is a number: " + str(self.attribute1)  
+    
+    def method2(self):                                                   # Second method
+        return self.attribute2 * 2
+
+my_object = Myclass(32, 6)                                               # Create a class.
+
+print(my_object.attribute1)                                              # Output: 32
+print(my_object.attribute2)                                              # Output: 6
+print(my_object.method1())                                               # Output: this is a number(32)
+print(my_object.method2())                                               # Output: 12
+
+# Get the perent class name
+my_object.__class__                                                      # Return the name of pernent class. => <class '__main__.Myclass'>
+
+## Inheritance
+class Perent_class:                                                      # Create a normal class
+    def __init__(self, score):
+        print(f"Initilizing Perent...\nPerent Score: {score}\n")
+        self.score = float(score)
+
+    def say(self):
+        print("I'am the Perent!!")
+
+
+class Child_class(Perent_class):                                         # Pass Perent_class through Child_class
+    def __init__(self, score):
+        super().__init__(score)                                          # Call __init__ From Perent_class
+        print(f"Initilizing Child...\nChild Score: {int(score)-3}\n")
+    
+    def say(self):
+        super().say()                                                    # Call say() From Perent_class
+        print("I'am their Child!!\n")
+
+Child = Child_class(23)                                                  # Create the Child_class
+Child.say()                                                              # Use method that uses a method from Perent_class
 
