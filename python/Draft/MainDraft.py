@@ -1,3 +1,4 @@
+# Draft/MainDraft.py
 
 #############     #####         #####  #######################  ######          ######          ###########           #########        ######
 ###############    #####       #####   #######################  ######          ######       ##################       ##########       ######
@@ -59,6 +60,7 @@ type([1, 2, 3, 4, 5, 6])                                               # Result 
 type((1, 2, 3, 4, 5, 6))                                               # Result => "tuple" |Tuple.
 type({1, 2, 3, 4, 5, 6})                                               # Result => "set"   |Set.
 type({"One" : 1, "Two" : 2, "Three" : 3})                              # Result => "dict"  |Dictionary.
+type(b'Hello')                                                         # Result => "bytes" |Bytes.
 
 #Variables-------------------------------------------------------------
 
@@ -1021,7 +1023,7 @@ def timer(func):                                                        # Decora
 @timer                                                                  # We call our decorator.
 def foo(start, end):
     for i in range(start,end):
-        print("Hi!")
+        print("Hi!", end= " ")
 
 foo(1, 20)                                                              # Call our function.
 
@@ -1133,7 +1135,7 @@ def say_hello(name: str, grade: int) :                                   # Other
 #> [ame]   => Any "a" or "m" or "e"                                      |> "mea"
 #> [2-8]   => 2 to 8                                                     |> "7355"
 #> [a-e0-9]=> "a" to "e" and 0 to 9                                      |> "aeebd33450"
-#> [^a-h]  => Every thing but not "a" to "z"                             |> "k0jgim1^&"
+#> [^a-h]  => Every thing but not "a" to "h"                             |> "k0jim1^&"
 
 # ^(https?://)(www\.)?(\w+).(net|org|com)$         => Regular experession for link
 # ^([A-z0-9/.]+)(@[A-z0-9]+)(.[a-z]+)$             => Regular experession for email
@@ -1148,148 +1150,319 @@ my_search = re.search("\d", "my number is: 23")                                 
 my_findall = re.findall("\d", "my number is: 23")                                # Return list => ['2', '3']
 print(re.findall(r"^([A-z0-9/.]+)@([A-z0-9]+).([a-z]+)$", "new.hi@emaile.pro"))  # Result => [('new.hi', 'emaile', 'pro')]
 
-print(dir(re))
 
-# OOP--------------------------------------------------------------------
+# OOP (Object-Oriented Programming) ---------------------------------------
 
-#|> (OOP) is Object-Oriented Programming.
-#|> We create an object with keyword class.
-#|> A method is a function inside the class.
-#|> An attribute is a variable in the class.
-#|> __init__() method executed when the class instance created.
-#|> Use dir(class_name) to preview it's methods.
-#|> self is points for insatance that we will create.
-#|> "self" can be named any thing.
-#|> Types of methods    --> Instance methods, class methods, static methods, spcial methods
-#|> Types of attributes --> instansce attributes, class attributes
+#|> OOP stands for Object-Oriented Programming.
+#|> We create a class with the keyword 'class'.
+#|> A method is a function defined inside a class.
+#|> An attribute (or property) is a variable defined in a class.
+#|> The __init__() method is executed when a class instance is created.
+#|> Use dir(class_name) to preview its methods.
+#|> self refers to the instance that we will create.
+#|> "self" can be named anything.
+#|> Types of methods: Instance methods, class methods, static methods, Others...
+#|> Types of attributes: instance attributes, class attributes, Others...
+
 
 # Create a first class
-class first:                                                              # name the class after the keyword "class"
-    def __init__(self, name):                                             # self argument is very important.
-        print("This is my first class!")                                  # Will executed when class instance created.
-        print("Name: {name}")
-fst_cls = first("hello")                                                  # "first" instance class created.
-#                                                                         # __init__() method will executed.
+class First:                                                                     # Name the class after the keyword 'class'
+    def __init__(self, name):                                                    # self argument is very important.
+        print("This is my first class!")                                         # Will execute when a class instance is created.
+        print(f"Name: {name}")                                                   # Print the name parameter
 
-# Other Example
-class friends:
-    number = 0                                                            # This is a class attribute (more later).
+fst_cls = First("hello")                                                         # Create an instance of 'First' class.
+# __init__() method will be executed.
 
-    def __init__(self, name):                                             # This class required one parameter which is (name).
-        self.name = name                                                  # This is Instance attribute (more later).
+# Another Example
+class Friends:
+    number = 0                                                                   # This is a class attribute.
 
-friends.number                                                            # access the attribute without create the object (more later). 
+    def __init__(self, name):                                                    # This class requires one parameter, 'name'.
+        self.name = name                                                         # This is an instance attribute.
 
-frds = friends("david")                                                   # Object creation with name "frds"
-frds.name                                                                 # get the attribute.
-frds.number                                                               # We can access the class attribute from the object.
+Friends.number                                                                   # Access the attribute without creating an object.
 
-# Methods types-----------------------------------------------------------
+frds = Friends("David")                                                          # Object creation with name 'frds'
+frds.name                                                                        # Get the attribute.
+frds.number                                                                      # We can access the class attribute from the object.
 
-#|> Methods are a function inside a class.
-#|> We have four types of methods:
-#|> Instance methods.(most common)
-#|> Class methods.
-#|> Static methods.
-#|> Spesial methods.
+# Methods types------------------------------------------------------------------
+
+#|> Methods are functions defined inside a class.
+#|> There are four types of methods:
+#| * Instance methods (most common).
+#| * Class methods.
+#| * Static methods.
+#| * Special methods.
 
 # INSTANCE METHODS #
 #|> These methods are the most common type.
-#|> The first parameter of in instance method is always "self" (or any parameter refirs for instance), which refers to the instance calling the method.
-#|> Instance methods are linked with an object so we can't use it without create an object.
-#|> Can access other methods in same class with (self.) prefix.
+#|> The first parameter of an instance method is always 'self' (or any parameter that refers to the instance), which refers to the instance calling the method.
+#|> Instance methods are linked with an object, so we can't use them without creating an object.
+#|> Can access other methods in the same class with the 'self.' prefix.
 
 class Members:
     e = 1
     def __init__(self):
         pass
 
-    def greating(self):                            # This is a Instance method 
+    def greeting(self):                           # This is an instance method 
         return "hello"
 
-    def named_great(self, name):
+    def named_greet(self, name):
         self.fname = name
-        return self.greating() + name              # Access a other method on the same class.
-
+        return self.greeting() + name             # Access another method in the same class.
 
 # CLASS METHODS #
-#|> Class mothod is related with the class Therefore We don't need to create an object to call it.
-#|> The first parameter is always (cls), which refers to the class itself.
-#|> They are defined using the (@classmethod) decorator.
-#|> The class methods change the class state in general.
-#|> Class methods works on level of all instansces and the whole class and affact them.
+#|> Class methods are related to the class, so we don't need to create an object to call them.
+#|> The first parameter is always 'cls', which refers to the class itself.
+#|> They are defined using the '@classmethod' decorator.
+#|> Class methods can access all types of attributes and methods.
+#|> Class methods change the class state in general.
+#|> Class methods work on the level of all instances and the whole class and affect them.
 
 class MyClass:
-    class_var = 0                                 # Class variable (more later)
+    class_var = 0                                 # Class variable
 
     @classmethod                                  # Class method decorator
-    def class_method(cls):                        # It's first parameter is (cls) which refer to the class
+    def class_method(cls):                        # Its first parameter is 'cls', which refers to the class
         cls.class_var += 1
 
-MyClass.class_method()                            # Call the method without create an object(instance).
-
+MyClass.class_method()                            # Call the method without creating an object.
 
 # STATIC METHODS #
-#|> Static methods have a logical bound with class but it don't need to access the class or instance methods or attributes.
-#|> Static methods don't Requir (self) or (cls) to work.
-#|> They are defined using the (@staticmethod) decorator.
+#|> Static methods have a logical connection with the class but don't need to access the class or instance methods or attributes.
+#|> Static methods don't require 'self' or 'cls' to work.
+#|> They are defined using the '@staticmethod' decorator.
 
 class MyClass:
-    @staticmethod                                 # The static method decorator.
+    @staticmethod                                 # Static method decorator
     def static_method():
         print("This is a static method")
 
-MyClass.static_method()
+MyClass.static_method()                           # Call the static method without creating an instance.
+
+# SPECIAL METHODS # 
+#|> These methods have double underscores (__) at the beginning and end of their names.
+#|> They are also known as dunder methods.
+#|> They are used to implement behavior for built-in operations.
+
+class Test:
+    def __init__(self, value):                    # (Constructor) executes when a class instance is created.
+        self.value = value
+
+    def __str__(self):                            # Built-in method executes when the class instance is printed.
+        return f"Its value is {self.value}"       # __str__ must return a string.
+
+obj = Test(10)
+
+# __str__
+# Works when the the instance printed.
+print(obj)                                        # Result => "Its value is 10"
+
+# __class__ 
+# Get the base class name
+obj.__class__                                     # Return the class name |Output => <class '__main__.Test'>
+
+# Attribute types----------------------------------------------------------------
+
+#|> Attributes are variables defined inside a class.
+#|> There are many types of attributes, but we will talk about some of them.
+
+#|> There are four types of Attributes:
+#| * Instance attributs (most common).
+#| * Class attributes.
+#| * Protected attributes (Later).
+#| * Private attributes (Later).
+
+
+# INSTANCE ATTRIBUTES #
+#|> Instance attributes are the most common type of attributes.
+#|> Instance attributes are prefixed with 'self.'
+#|> Instance attributes can be accessed in instance methods.
+
+class MyClass:
+    def __init__(self, value):
+        self.instance_attribute = value                  # Instance attribute
+
+obj = MyClass(10)
+print(obj.instance_attribute)                            # Call the attribute |Output => 10
+
+# CLASS ATTRIBUTES #
+#|> Class attributes are related to the class, not to the instance.
+#|> Class attributes are defined outside the __init__() or other methods.
+#|> Class attributes can be accessed only in class methods or from outside the class.
+#|> All instances have shared class attributes.
+#|> Access the class atrribute by write 'class_name.attribute_name'
+
+class Cls_attr:
+    class_attribute = "shared"                           # Class attribute
+
+    def times(self, times):
+        return Cls_attr.class_attribute * times          # Access class attribute with class name thin attribute name
+
+obj1 = Cls_attr()
+obj2 = Cls_attr()
+obj1.class_attribute                                     # Output: shared
+obj2.class_attribute                                     # Output: shared
 
 
 
-
-
-## Inheritance
-#|> Inheritance is a way to form new classes (child class) using classes that have already (perent class) been defined.
+# Inheritance--------------------------------------------------------------------
+#|> Inheritance is a way to form new classes (child class) using classes that have already been defined (perent class).
 #|> We use super() to call the parent class’s methods and attributes.
 
-class Myclass:                                                           # Descriping a class.
-    # __init__ Method executed when the object created.
-    def __init__(self, attribute1, attribute2):                          # Define an attribute
-        self.attribute1 = attribute1
-        self.attribute2 = attribute2
-    
-    def method1(self):                                                   # define a method
-        return "this is a number: " + str(self.attribute1)  
-    
-    def method2(self):                                                   # Second method
-        return self.attribute2 * 2
-
-my_object = Myclass(32, 6)                                               # Create a class.
-
-print(my_object.attribute1)                                              # Output: 32
-print(my_object.attribute2)                                              # Output: 6
-print(my_object.method1())                                               # Output: this is a number(32)
-print(my_object.method2())                                               # Output: 12
-
-# Get the perent class name
-my_object.__class__                                                      # Return the name of pernent class. => <class '__main__.Myclass'>
-
 ## Inheritance
-class Perent_class:                                                      # Create a normal class
-    def __init__(self, score):
-        print(f"Initilizing Perent...\nPerent Score: {score}\n")
-        self.score = float(score)
 
-    def say(self):
-        print("I'am the Perent!!")
+class Food:  # Base Class
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+        print(f"{self.name} Is Created From Base Class")
+
+    def eat(self):
+        return "eat"
+
+class Apple(Food):  # Derived Class
+  
+    def __init__(self, name, price, amount):
+        Food.__init__(self, name, price)       # Create Instance From Base Class
+        super().__init__(name, price)          # This tow are same.
+        self.amount = amount
+        print(f"{self.name} Is Created From Derived Class And Price Is {self.price} And Amount Is {self.amount}")
+
+    def get_from_tree(self):
+        return "Get From Tree From Derived Class"
+
+food_one = Food("Pizza", 12)
+food_two = Apple("Pizza", 150, 500)
+food_two.eat()
+food_two.eat()                                 # This method come from base (Food) class
+
+# Some Special Methods-----------------------------------------------------------
+
+class Speial:
+    def __trueviv__():
+        print("You can devide this class!")
+
+# Encapsulation------------------------------------------------------------------
+
+#|> Manage Access To The Data Stored in Attirbutes and Methods
+#|> Public:
+#  * Every attribute and method that we used so far is public
+#  * Attributes Can Be Modified and Run From Everywhere
+
+#|> Protected:
+#  * Attributes can be accessed From Within The Class And Sub Classes
+#  * Attributes and Methods Prefixed With One Underscore _
+
+#|> Private:
+#  * Attributes and methods can be accessed from within the class or object only
+#  * Attributes Cannot Be Modified From Outside The Class
+#  * Attributes and Methods Prefixed With Two Underscores __
 
 
-class Child_class(Perent_class):                                         # Pass Perent_class through Child_class
-    def __init__(self, score):
-        super().__init__(score)                                          # Call __init__ From Perent_class
-        print(f"Initilizing Child...\nChild Score: {int(score)-3}\n")
+# PUBLIC #
+class Member:
+
+    def __init__(self, name):
+        self.name = name                 # 'Public' atrribute.
+
+one = Member("Ahmed")
+print(one.name)                          # We can  access the attribute. |Output => "Ahmed"
+one.name = "Sayed"                       # We can modify the attribute.
+
+# PROTICTED #
+class Member:
+
+    def __init__(self, name):
+        self._name = name                # 'Protected' Attribute.
+
+one = Member("Ahmed")
+print(one._name)                         # We can veiw the data.
+one._name = "Sayed"                      # We can modify the data (But not reccomanded).
+print(one._name)
+
+
+# PRIVETE #
+class Member:
+    def __init__(self, name):
+        self.__name = name                # 'Private' attribute
+
+    def say_hello(self):
+        return f"Hello {self.__name}"     # We can Only access the data from the class or derived classes.
+
+
+one = Member("Samer")
+# print(one.__name)                       # Generate error
+one._Member__name                         # The only way to veiw or modify the data. *
+
+# *The True way to view (get) or modify(change) the privete attributes is to create a methods inside the class to get or set a value to attribute this methods called getter and setter. 
+
+
+# Property decorator-------------------------------------------------------------
+
+#|> To convet a method to an attribute (property) We use "@property"
+#|> The method must not take any paprameter (exept 'self') to convert.
+#|> We can consider it as type of methods (property Method).
+
+class Property:
+    def __init__(self, days) -> None:
+        self.days = days
     
-    def say(self):
-        super().say()                                                    # Call say() From Perent_class
-        print("I'am their Child!!\n")
+    @property                                     # property decorator.
+    def to_years(self):                           # This method not take a any parameters.
+        return self.days/356
+    
+Property.to_years                                 # Call the property method.
 
-Child = Child_class(23)                                                  # Create the Child_class
-Child.say()                                                              # Use method that uses a method from Perent_class
 
+# __name__-----------------------------------------------------------------------
+
+#|> Name is built in variable in python.
+#|> when the file running dirrectly __name__ equales "__main__"
+
+# Used almost in this formate.
+if __name__ == "__main__" :
+    pass # Do some thing, almost Run main()
+
+
+#Modules----------------------------------------------------------------
+
+#|> Module is A File Contain A Set Of Functions.
+#|> You Can Create Your Own Modules.
+#|> All my modules are in (C:/Users/Hp/AppData/Local/Programs/Python/Python312)
+#|> This is the oficial wepsite for built-In modules(https://docs.python.org/3/py-modindex.html).
+
+
+# Importing
+#| import (module_name)                                                  Import a module on my code.
+#| from (module_name) import (function_name)                             Import a function from amodule.
+#| module_name.function_name()                                           Call a function from pre-imported module, bracis are included.
+#| function_name()                                                       Call a pre-imported function, bracis are included. 
+# NOTIC: bracis are ONLY for claration.
+
+# Examples
+import math                                                              # math is built-In module in python.
+from math import isqrt                                                   # isqrt is a function inside math module.
+math.sin(30)                                                             # We using a function inside math module.
+isqrt(25)                                                                # We using pre-imported function.
+
+#External Packages-------------------------------------------------------
+
+#|> We download External Packages from internet by using (pip) python packages manager.
+#|> We search about external packages form (https://pypi.org/)
+
+# PIP                                  If We have any problems with permisan We can add (--user).
+# pip --version                        To chuck if pip exist.
+# pip list                             List all installed packages with thair versions.
+# pip install (package)                Install new package.
+# pip uninstall (package)              unInstall a package.
+# pip install (package) --upgrade      Upgrade package.
+
+# To check the contant of any module/package.
+# dir(module/package)
+
+print(dir(math))

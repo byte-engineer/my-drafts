@@ -1,0 +1,37 @@
+
+QMainWindow {
+    background-color: #0f0f0f;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+QPushButton {
+    background-color: black;
+    color: white;          
+}
+
+QPushButton:hover {
+    background-color: gray;
+    color: yellow; 
+}
+
+QPushButton:pressed {
+    background-color: red;
+    color: blue;  
+}
+
+QLabel#lbl0 {
+    font-size: 12px;
+    color: #ff3322;
+    font-weight: bold;
+}
+
+
+QLabel {
+    font-size: 15px;
+    color: #fff333bb;
+}
+

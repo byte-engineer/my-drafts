@@ -1,0 +1,66 @@
+/* Global Style */
+QWidget {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* ComboBox */
+QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+QComboBox::drop-down {
+    border-left: 1px solid #cccccc;
+}
+
+QComboBox::down-arrow {
+    image: url(arrow.png); /* You can use your own arrow image */
+}
+
+/* LineEdit */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #0056b3;
+}
+
+QPushButton:pressed {
+    background-color: #004085;
+}
+
+/* Labels */
+QLabel {
+    color: #333333;
+    font-size: 14px;
+}
+
+/* Layouts */
+QFormLayout {
+    margin: 10px;
+}
+
+QVBoxLayout {
+    margin: 10px;
+}
+
+QHBoxLayout {
+    margin: 10px;
+}

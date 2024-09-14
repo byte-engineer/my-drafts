@@ -1,3 +1,5 @@
+# Draft/Librarys/Numpy.py
+
 # General veiw------------------------------------------------------
 #|> Numpy is very excellent for general-purpose scientific computing.
 #|> Python comunity are using this module because of it's efficiency.
@@ -38,12 +40,11 @@ arr1 **arr2
 # Advanced oprations------------------------------------------------
 
 MAT = np.array([[1, 2, 3],
-                   [4, 5, 6], 
-                   [7, 8, 9]])
+                [4, 5, 6], 
+                [7, 8, 9]])
 
 vec = np.array([1, 2, 3])
 
 print(np.matmul(vec, MAT))
-
 
 
